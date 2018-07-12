@@ -8,33 +8,13 @@
 </ion-header>
 
 <ion-content class="outer-content">
-  <ion-list>
-    <ion-list-header>Anotações</ion-list-header>
-
-    <ion-item-sliding>
-      <ion-item>        
-        <ion-grid>
-          <ion-row>
-            <ion-col col-12 no-padding>Título</ion-col>
-          </ion-row>
-          <ion-row>
-              <ion-col col-12 no-padding>Cafeteriallllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllluuuuuuuuuuuuuuuuuuuuuuulllllllllllllllllllllllllllllllllllllllllllllllll</ion-col>
-              <ion-col col-12 no-padding>Café</ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-item>
-      <ion-item-options side="right">
-        <button ion-button color="primary" icon-start>
-          <ion-icon name="md-create"></ion-icon>
-          Editar
-        </button>
-        <button ion-button color="danger" icon-start>
-          <ion-icon name="md-trash"></ion-icon>
-          Apagar
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
-
-  </ion-list>
+  <ion-card (press)="pressEvent($event)">
+    <ion-card-header>Cafeteria</ion-card-header>
+    <ion-card-content>
+      <ion-row>Café</ion-row>
+      <ion-row>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</ion-row>
+    </ion-card-content>
+    
+  </ion-card>
 
 </ion-content>
