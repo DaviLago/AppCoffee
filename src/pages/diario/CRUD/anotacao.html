@@ -1,0 +1,44 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Anotação</ion-title>
+        <ion-buttons start>
+        <button ion-button (click)="modalCloseClickEvent()">            
+            <ion-icon name="close"></ion-icon>
+        </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+  
+  <ion-content>
+    <form (ngSubmit)="logForm()">
+        <ion-item>
+            <ion-label floating>Cafeteria</ion-label>
+            <ion-input type="text" [(ngModel)]="anotacao.cafeteria" name="cafeteria"></ion-input>
+        </ion-item>        
+        <ion-item>
+            <ion-label floating>Café</ion-label>
+            <ion-input type="text" [(ngModel)]="anotacao.cafe" name="cafe"></ion-input>
+        </ion-item>        
+        <ion-item>
+            <ion-label floating>Barista</ion-label>
+            <ion-input type="text" [(ngModel)]="anotacao.barista" name="barista"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Harmonização</ion-label>
+            <ion-input type="text" [(ngModel)]="anotacao.harmonizacao" name="harmonizacao"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Complemento</ion-label>
+            <ion-input type="text" [(ngModel)]="anotacao.complemento" name="complemento"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Método de Preparo</ion-label>
+            <ion-input type="text" [(ngModel)]="anotacao.preparo" name="preparo"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Descrição</ion-label>
+            <ion-textarea type="text" [(ngModel)]="anotacao.descricao" name="descricao"></ion-textarea>
+        </ion-item>
+        <button ion-button type="submit" block>Salvar</button>
+    </form>
+  </ion-content>

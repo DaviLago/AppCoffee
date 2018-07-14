@@ -6,6 +6,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { DiarioPage } from '../pages/diario/diario';
+import { AnotacaoModalPage } from '../pages/diario/CRUD/anotacao';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -17,7 +18,8 @@ enableProdMode();
     MyApp,
     HomePage,
     ListPage,
-    DiarioPage
+    DiarioPage,
+    AnotacaoModalPage
   ],
   imports: [
     BrowserModule,
@@ -28,7 +30,8 @@ enableProdMode();
     MyApp,
     HomePage,
     ListPage,
-    DiarioPage
+    DiarioPage,
+    AnotacaoModalPage
   ],
   providers: [
     StatusBar,

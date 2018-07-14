@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ActionSheetController } from 'ionic-angular';
+import { NavController, NavParams, ActionSheetController, ModalController } from 'ionic-angular';
+import { AnotacaoModalPage } from './CRUD/anotacao';
 
 @Component({
   selector: 'page-diario',
@@ -7,40 +8,19 @@ import { NavController, NavParams, ActionSheetController } from 'ionic-angular';
 })
 export class DiarioPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public actionSheetCtrl: ActionSheetController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, 
+              public actionSheetCtrl: ActionSheetController, public modalCtrl: ModalController) {
     
   }
 
   
-  pressEvent(e) {
-    this.presentActionSheet();
+  anotationCreateClickEvent(e) {
+    this.presentModal();
   }
 
-  presentActionSheet() {
-    const actionSheet = this.actionSheetCtrl.create({
-      title: 'Escolha uma opção',
-      buttons: [
-        {
-          text: 'Destructive',
-          role: 'destructive',
-          handler: () => {
-            console.log('Destructive clicked');
-          }
-        },{
-          text: 'Archive',
-          handler: () => {
-            console.log('Archive clicked');
-          }
-        },{
-          text: 'Cancel',
-          role: 'cancel',
-          handler: () => {
-            console.log('Cancel clicked');
-          }
-        }
-      ]
-    });
-    actionSheet.present();
+  presentModal() {
+    const modal = this.modalCtrl.create(AnotacaoModalPage);
+    modal.present();
   }
   
 }

@@ -4,17 +4,30 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Diário</ion-title>
+    <ion-buttons start>
+        <button ion-button (click)="anotationCreateClickEvent($event)">            
+            <ion-icon name="create"></ion-icon>
+        </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="outer-content">
-  <ion-card (press)="pressEvent($event)">
-    <ion-card-header>Cafeteria</ion-card-header>
-    <ion-card-content>
-      <ion-row>Café</ion-row>
-      <ion-row>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</ion-row>
-    </ion-card-content>
-    
-  </ion-card>
+  <ion-list text-wrap>
+    <ion-item-sliding>
+      <ion-item no-padding no-margin>
+        <ion-card (click)="anotationCreateClickEvent($event)">
+          <ion-card-header>Cafeteria</ion-card-header>
+          <ion-card-content>
+            <ion-row>Café</ion-row>
+            <ion-row>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</ion-row>
+          </ion-card-content>
+        </ion-card>
+      </ion-item>
+      <ion-item-options side="right" no-border>
+          <button ion-fab mini color="danger"><ion-icon name="trash"></ion-icon></button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
 
 </ion-content>
