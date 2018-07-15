@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ViewController } from 'ionic-angular';
+import { Platform, NavParams, ViewController } from 'ionic-angular';
 
 @Component({
   selector: 'page-anotacao',
@@ -7,9 +7,9 @@ import { NavController, NavParams, ViewController } from 'ionic-angular';
 })
 export class AnotacaoModalPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,
+  constructor(public platform: Platform, public navParams: NavParams,
               public viewCtrl: ViewController) {
-    
+    console.log(navParams.get('teste'));
   }
   
   anotacao = {}
