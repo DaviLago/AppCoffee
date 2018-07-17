@@ -15,57 +15,22 @@
 <ion-content class="outer-content">
   <ion-list text-wrap>
 
-    <ion-item-divider></ion-item-divider>
-
-    <ion-item-sliding>
-      <ion-item (click)="anotationCreateClickEvent($event)">  
-        <ion-row>Cafeteria</ion-row>
-        <ion-row>Café</ion-row>
-        <ion-row>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</ion-row>
-      </ion-item>
-      <ion-item-options side="right">
-          <button ion-fab mini color="danger" (click)=anotationDeleteClickEvent($event)><ion-icon name="trash"></ion-icon></button>
-      </ion-item-options>
-    </ion-item-sliding>
-
-    <ion-item-divider></ion-item-divider>
+    <div *ngFor="let anotacao of anotacoes">
     
-    <ion-item-sliding>
-      <ion-item (click)="anotationCreateClickEvent($event)">  
-        <ion-row>Cafeteria</ion-row>
-        <ion-row>Café</ion-row>
-        <ion-row>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</ion-row>
-      </ion-item>
-      <ion-item-options side="right">
-          <button ion-fab mini color="danger"><ion-icon name="trash"></ion-icon></button>
-      </ion-item-options>
-    </ion-item-sliding>
+      <ion-item-divider></ion-item-divider>
 
-    <ion-item-divider></ion-item-divider>
+      <ion-item-sliding>
+        <ion-item (click)="anotationCreateClickEvent($event, anotacao)">  
+          <ion-row>{{anotacao.cafeteria}}</ion-row>
+          <ion-row>{{anotacao.cafe}}</ion-row>
+          <ion-row>{{anotacao.descricao}}</ion-row>
+        </ion-item>
+        <ion-item-options side="right">
+            <button ion-fab mini color="danger" (click)="anotationDeleteClickEvent($event, anotacao)"><ion-icon name="trash"></ion-icon></button>
+        </ion-item-options>
+      </ion-item-sliding>
 
-    <ion-item-sliding>
-      <ion-item (click)="anotationCreateClickEvent($event)">  
-        <ion-row>Cafeteria</ion-row>
-        <ion-row>Café</ion-row>
-        <ion-row>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</ion-row>
-      </ion-item>
-      <ion-item-options side="right">
-          <button ion-fab mini color="danger"><ion-icon name="trash"></ion-icon></button>
-      </ion-item-options>
-    </ion-item-sliding>
-
-    <ion-item-divider></ion-item-divider>
-
-    <ion-item-sliding>
-      <ion-item (click)="anotationCreateClickEvent($event)">  
-        <ion-row>Cafeteria</ion-row>
-        <ion-row>Café</ion-row>
-        <ion-row>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</ion-row>
-      </ion-item>
-      <ion-item-options side="right">
-          <button ion-fab mini color="danger"><ion-icon name="trash"></ion-icon></button>
-      </ion-item-options>
-    </ion-item-sliding>
+    </div>
   </ion-list> 
 
 </ion-content>
