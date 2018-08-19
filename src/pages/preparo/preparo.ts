@@ -3,9 +3,9 @@ import { NavController, NavParams } from 'ionic-angular';
 
 @Component({
   selector: 'page-list',
-  templateUrl: 'list.html'
+  templateUrl: 'preparo.html'
 })
-export class ListPage {
+export class PreparoPage {
   selectedItem: any;
   items: Array<{title: string, note: string, icon: string}>;
 
@@ -13,23 +13,23 @@ export class ListPage {
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = navParams.get('item');
 
-   var arabica = {
-    title: 'Grão Arábica' ,
-    note: 'Descricao do Grão Arábica' ,
-    icon: 'ios-leaf-outline'
+   var prensaFrancesa = {
+    title: 'Prensa Francesa' ,
+    note: 'Descricao da Prensa Francesa' ,
+    icon: 'ios-water-outline'
   }
-  var robusta = {
-    title: 'Grão Robusta' ,
-    note: 'Descricao do Grão Robusta' ,
-    icon: 'ios-leaf-outline'
+  var coadoHarioV60 = {
+    title: 'Hario V60' ,
+    note: 'Descricao da Hario V60' ,
+    icon: 'ios-water-outline'
   }
  
-    this.items = [arabica,robusta];
+    this.items = [prensaFrancesa,coadoHarioV60];
   }
 
   itemTapped(event, item) {
     // That's right, we're pushing to ourselves!
-    this.navCtrl.push(ListPage, {
+    this.navCtrl.push(PreparoPage, {
       item: item
     });
   }

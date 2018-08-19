@@ -3,9 +3,9 @@ import { NavController, NavParams } from 'ionic-angular';
 
 @Component({
   selector: 'page-list',
-  templateUrl: 'list.html'
+  templateUrl: 'torra.html'
 })
-export class ListPage {
+export class TorraPage {
   selectedItem: any;
   items: Array<{title: string, note: string, icon: string}>;
 
@@ -13,23 +13,28 @@ export class ListPage {
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = navParams.get('item');
 
-   var arabica = {
-    title: 'Grão Arábica' ,
-    note: 'Descricao do Grão Arábica' ,
-    icon: 'ios-leaf-outline'
+   var torraClara = {
+    title: 'Torra Clara' ,
+    note: 'Descricao torra clara' ,
+    icon: 'ios-cafe-outline'
   }
-  var robusta = {
-    title: 'Grão Robusta' ,
-    note: 'Descricao do Grão Robusta' ,
-    icon: 'ios-leaf-outline'
+  var torraMedia = {
+    title: 'Torra Media' ,
+    note: 'Descricao torra Media' ,
+    icon: 'ios-cafe-outline'
   }
- 
-    this.items = [arabica,robusta];
+  var torraEscura = {
+    title: 'Torra Escura' ,
+    note: 'Descricao torra Escura' ,
+    icon: 'ios-cafe-outline'
+  }
+
+    this.items = [torraClara,torraMedia,torraEscura];
   }
 
   itemTapped(event, item) {
     // That's right, we're pushing to ourselves!
-    this.navCtrl.push(ListPage, {
+    this.navCtrl.push(TorraPage, {
       item: item
     });
   }
