@@ -10,11 +10,13 @@ import { urlProvider } from '../providers/urlProvider';
 //Pages
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+import { TorraListPage } from '../pages/torra/torra';
+import { PreparoListPage } from '../pages/preparo/preparo';
+import { GraoListPage } from '../pages/grao/grao';
 import { DiarioPage } from '../pages/diario/diario';
 
 //Models
-import { AnotacaoModalPage } from '../pages/diario/CRUD/anotacao';
+import { AnotacaoModalPage } from '../pages/diario/anotacao/anotacao';
 
 
 //Native
@@ -27,7 +29,9 @@ enableProdMode();
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
+    TorraListPage,
+    PreparoListPage,
+    GraoListPage,
     DiarioPage,
     AnotacaoModalPage
   ],
@@ -40,7 +44,9 @@ enableProdMode();
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage,
+    TorraListPage,
+    PreparoListPage,
+    GraoListPage,
     DiarioPage,
     AnotacaoModalPage
   ],

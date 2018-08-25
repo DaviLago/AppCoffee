@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ActionSheetController, ModalController, AlertController  } from 'ionic-angular';
-import { AnotacaoModalPage } from './CRUD/anotacao';
+import { AnotacaoModalPage } from './anotacao/anotacao';
 
 //import { AnotacaoModel } from '../../models/AnotacaoModel';
 import { AnotacaoProvider } from '../../providers/anotacaoProvider';
