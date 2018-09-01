@@ -3,7 +3,7 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 //import { AnotacaoModel } from '../models/AnotacaoModel';
-import { urlProvider } from './urlProvider';
+import { Provider } from './provider';
 
 @Injectable()
 export class AnotacaoProvider {
@@ -15,7 +15,7 @@ export class AnotacaoProvider {
   constructor(public http: Http) { }
 
   public getUrl(){
-    return urlProvider.getUrl();
+    return Provider.getUrl();
   }
 
 /*

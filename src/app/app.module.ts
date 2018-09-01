@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 
 //Providers
 import { AnotacaoProvider } from '../providers/anotacaoProvider';
-import { urlProvider } from '../providers/urlProvider';
+import { Provider } from '../providers/provider';
 
 //Pages
 import { MyApp } from './app.component';
@@ -55,7 +55,7 @@ enableProdMode();
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AnotacaoProvider,
-    urlProvider
+    Provider
   ]
 })
 export class AppModule {}
