@@ -8,6 +8,9 @@ import { TorraPage } from '../pages/torra/torra';
 import { PreparoPage } from '../pages/preparo/preparo';
 import { ListPage } from '../pages/list/list';
 import { DiarioPage } from '../pages/diario/diario';
+import { LoginPage } from '../pages/login/login';
+import { CadastroPage } from '../pages/cadastro/cadastro';
+import { EsqueciSenhaPage } from '../pages/esqueci-senha/esqueci-senha';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -19,7 +22,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TorraPage,
     PreparoPage,
     ListPage,
-    DiarioPage
+    DiarioPage,
+    LoginPage,
+    CadastroPage,
+    EsqueciSenhaPage
+
   ],
   imports: [
     BrowserModule,
@@ -32,7 +39,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TorraPage,
     PreparoPage,
     ListPage,
-    DiarioPage
+    DiarioPage,
+    LoginPage,
+    CadastroPage,
+    EsqueciSenhaPage
+
+
   ],
   providers: [
     StatusBar,

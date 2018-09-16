@@ -8,6 +8,9 @@ import { TorraPage } from '../pages/torra/torra';
 import { PreparoPage } from '../pages/preparo/preparo';
 import { ListPage } from '../pages/list/list';
 import { DiarioPage } from '../pages/diario/diario';
+import { LoginPage } from '../pages/login/login';
+import { CadastroPage } from '../pages/cadastro/cadastro';
+import { EsqueciSenhaPage } from '../pages/esqueci-senha/esqueci-senha';
 
 @Component({
   templateUrl: 'app.html'
@@ -28,7 +31,10 @@ export class MyApp {
       { title: 'Torra', component: TorraPage },
       { title: 'Grão', component: ListPage },
       { title: 'Método de Preparo', component: PreparoPage },
-      { title: 'Diário', component: DiarioPage }
+      { title: 'Diário', component: DiarioPage },
+      { title: 'Login', component: LoginPage },
+      { title: 'Cadastro', component: CadastroPage },
+      { title: 'Esqueci Senha', component: EsqueciSenhaPage }
     ];
 
   }
