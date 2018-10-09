@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content class="outer-content">
+  <div class="login-box">
+    <form >
+      <ion-row>
+        <ion-col>
+          <ion-list inset>
+         
+            <ion-item>
+              <ion-input type="name" placeholder="Nome" name="name"  required></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input type="text" placeholder="E-mail" name="email"  required></ion-input>
+            </ion-item>
+            
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      
+      <ion-row>
+        <ion-col class="signup-col">
+          <button ion-button round class="submit-btn" full type="submit" >Recuperar</button>
+        </ion-col>
+      </ion-row>
+      
+    </form>
+  </div>
+</ion-content>
