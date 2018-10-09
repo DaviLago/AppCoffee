@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 @Component({
-  selector: 'page-list',
+  selector: 'torra-list',
   templateUrl: 'torra.html'
 })
-export class TorraPage {
+export class TorraListPage {
   selectedItem: any;
   items: Array<{title: string, note: string, icon: string}>;
 
@@ -34,7 +34,7 @@ export class TorraPage {
 
   itemTapped(event, item) {
     // That's right, we're pushing to ourselves!
-    this.navCtrl.push(TorraPage, {
+    this.navCtrl.push(TorraListPage, {
       item: item
     });
   }

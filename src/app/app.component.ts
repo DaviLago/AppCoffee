@@ -4,9 +4,9 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { TorraPage } from '../pages/torra/torra';
-import { PreparoPage } from '../pages/preparo/preparo';
-import { ListPage } from '../pages/list/list';
+import { TorraListPage } from '../pages/torra/torra';
+import { PreparoListPage } from '../pages/preparo/preparo';
+import { GraoListPage } from '../pages/grao/grao';
 import { DiarioPage } from '../pages/diario/diario';
 import { LoginPage } from '../pages/login/login';
 import { CadastroPage } from '../pages/cadastro/cadastro';
@@ -28,13 +28,13 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'Torra', component: TorraPage },
-      { title: 'Grão', component: ListPage },
-      { title: 'Método de Preparo', component: PreparoPage },
-      { title: 'Diário', component: DiarioPage },
       { title: 'Login', component: LoginPage },
       { title: 'Cadastro', component: CadastroPage },
       { title: 'Esqueci Senha', component: EsqueciSenhaPage }
+      { title: 'Torra', component: TorraListPage },
+      { title: 'Método de Preparo', component: PreparoListPage },
+      { title: 'Grão', component: GraoListPage },
+      { title: 'Diário', component: DiarioPage }
     ];
 
   }

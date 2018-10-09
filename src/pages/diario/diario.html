@@ -4,12 +4,16 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Diário</ion-title>
+    <ion-buttons start>
+        <button ion-button (click)="anotationCreateClickEvent($event)">            
+            <ion-icon name="create"></ion-icon>
+        </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="outer-content">
-  <ion-list>
-    <ion-list-header>Anotações</ion-list-header>
+  <ion-list text-wrap>
 
     <ion-item-sliding>
       <ion-item>        
@@ -33,7 +37,23 @@
         </button>
       </ion-item-options>
     </ion-item-sliding>
+    
+    <div *ngFor="let anotacao of anotacoes">
+    
+      <ion-item-divider></ion-item-divider>
 
-  </ion-list>
+      <ion-item-sliding>
+        <ion-item (click)="anotationCreateClickEvent($event, anotacao)">  
+          <ion-row>{{anotacao.cafeteria}}</ion-row>
+          <ion-row>{{anotacao.cafe}}</ion-row>
+          <ion-row>{{anotacao.descricao}}</ion-row>
+        </ion-item>
+        <ion-item-options side="right">
+            <button ion-fab mini color="danger" (click)="anotationDeleteClickEvent($event, anotacao)"><ion-icon name="trash"></ion-icon></button>
+        </ion-item-options>
+      </ion-item-sliding>
+
+    </div>
+  </ion-list> 
 
 </ion-content>
