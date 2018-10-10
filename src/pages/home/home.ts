@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { Provider } from '../../providers/provider';
 
 //Teste Model Diary
 import { DiaryModel } from '../../models/DiaryModel'
@@ -11,13 +10,8 @@ import { DiaryModel } from '../../models/DiaryModel'
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, private baseUrl: Provider) {
+  constructor(public navCtrl: NavController) {
       
-  }
-  
-  //Acessar um objecto injetado
-  a(){
-    this.baseUrl.getUrl;
   }
 
   //Teste com Model

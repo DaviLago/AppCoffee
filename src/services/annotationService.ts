@@ -1,21 +1,24 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+
 import 'rxjs/add/operator/map';
 
 //import { AnotacaoModel } from '../models/AnotacaoModel';
-import { Provider } from './provider';
+import { Service } from './service';
 
 @Injectable()
-export class AnotacaoProvider {
+export class AnnotationService extends Service {
 
   //private anotacao: AnotacaoModel;
 
   //private API_URL = 'https://reqres.in/api/'
 
-  constructor(public http: Http) { }
+  constructor(public http: Http) {
+    super();
+  }
 
-  public getUrl(){
-    return Provider.getUrl();
+  public get(){
+    return super.getUrl();
   }
 
 /*

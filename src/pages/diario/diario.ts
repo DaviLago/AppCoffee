@@ -3,7 +3,7 @@ import { NavController, NavParams, ActionSheetController, ModalController, Alert
 import { AnotacaoModalPage } from './anotacao/anotacao';
 
 //import { AnotacaoModel } from '../../models/AnotacaoModel';
-import { AnotacaoProvider } from '../../providers/anotacaoProvider';
+import { AnnotationService } from '../../services/annotationService';
 
 @Component({
   selector: 'page-diario',
@@ -16,7 +16,7 @@ export class DiarioPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
               public actionSheetCtrl: ActionSheetController, public modalCtrl: ModalController,
-              public alertCtrl: AlertController, public anotacaoProvider: AnotacaoProvider) {
+              public alertCtrl: AlertController, public annotationService: AnnotationService) {
     this.cont = 0;
     this.anotacoes = [];
     for (let i = 1; i < 6; i++) {

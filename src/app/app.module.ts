@@ -4,8 +4,9 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { HttpModule } from '@angular/http';
 
 //Providers
-import { AnotacaoProvider } from '../providers/anotacaoProvider';
-import { Provider } from '../providers/provider';
+import { AnnotationService } from '../services/annotationService';
+import { ArticleService } from '../services/articleService';
+import { Service } from '../services/service';
 
 //Pages
 import { MyApp } from './app.component';
@@ -63,8 +64,9 @@ enableProdMode();
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AnotacaoProvider,
-    Provider
+    AnnotationService,
+    ArticleService,
+    Service
   ]
 })
 export class AppModule {}
