@@ -30,7 +30,7 @@ export class MyApp {
       { title: 'Home', component: HomePage },
       { title: 'Login', component: LoginPage },
       { title: 'Cadastro', component: CadastroPage },
-      { title: 'Esqueci Senha', component: EsqueciSenhaPage }
+      { title: 'Esqueci Senha', component: EsqueciSenhaPage },
       { title: 'Torra', component: TorraListPage },
       { title: 'Método de Preparo', component: PreparoListPage },
       { title: 'Grão', component: GraoListPage },

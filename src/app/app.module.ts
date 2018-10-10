@@ -34,7 +34,7 @@ enableProdMode();
     HomePage,
     LoginPage,
     CadastroPage,
-    EsqueciSenhaPage
+    EsqueciSenhaPage,
     TorraListPage,
     PreparoListPage,
     GraoListPage,
@@ -52,7 +52,7 @@ enableProdMode();
     HomePage,
     LoginPage,
     CadastroPage,
-    EsqueciSenhaPage
+    EsqueciSenhaPage,
     TorraListPage,
     PreparoListPage,
     GraoListPage,
