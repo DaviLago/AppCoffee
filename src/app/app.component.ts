@@ -8,6 +8,9 @@ import { TorraListPage } from '../pages/torra/torra';
 import { PreparoListPage } from '../pages/preparo/preparo';
 import { GraoListPage } from '../pages/grao/grao';
 import { DiarioPage } from '../pages/diario/diario';
+import { LoginPage } from '../pages/login/login';
+import { CadastroPage } from '../pages/cadastro/cadastro';
+import { EsqueciSenhaPage } from '../pages/esqueci-senha/esqueci-senha';
 
 @Component({
   templateUrl: 'app.html'
@@ -25,6 +28,9 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
+      { title: 'Login', component: LoginPage },
+      { title: 'Cadastro', component: CadastroPage },
+      { title: 'Esqueci Senha', component: EsqueciSenhaPage }
       { title: 'Torra', component: TorraListPage },
       { title: 'Método de Preparo', component: PreparoListPage },
       { title: 'Grão', component: GraoListPage },

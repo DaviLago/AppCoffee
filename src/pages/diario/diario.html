@@ -15,6 +15,29 @@
 <ion-content class="outer-content">
   <ion-list text-wrap>
 
+    <ion-item-sliding>
+      <ion-item>        
+        <ion-grid>
+          <ion-row>
+            <ion-col col-12 no-padding>Título</ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col col-12 no-padding>Café</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="primary" icon-start>
+          <ion-icon name="md-create"></ion-icon>
+          Editar
+        </button>
+        <button ion-button color="danger" icon-start>
+          <ion-icon name="md-trash"></ion-icon>
+          Apagar
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+    
     <div *ngFor="let anotacao of anotacoes">
     
       <ion-item-divider></ion-item-divider>
