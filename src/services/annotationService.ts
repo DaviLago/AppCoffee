@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/add/operator/map';
 
@@ -9,16 +10,16 @@ import { Service } from './service';
 @Injectable()
 export class AnnotationService extends Service {
 
-  //private anotacao: AnotacaoModel;
-
-  //private API_URL = 'https://reqres.in/api/'
-
-  constructor(public http: Http) {
-    super();
+  constructor(public http: HttpClient) {
+    super(http);
   }
 
-  public get(){
-    return super.getUrl();
+  public getUrl(path:String){
+    return super.getBaseUrl() + '/' + path;
+  }
+
+  public getAllAnnoations(): Observable<any> {
+    return this.http.get(this.getUrl('/annotations'));
   }
 
 /*

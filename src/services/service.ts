@@ -1,17 +1,14 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class Service {
-    private static baseURL = 'localhost:8080/';
-    public baseURL = 'localhost:8080/';
+
+    private baseURL:String = 'http://viacep.com.br/ws';
     
-    constructor(){}
+    constructor(public http: HttpClient){}
 
-    public static getUrl(){
+    public getBaseUrl(){
         return this.baseURL;
-    }
-
-    public getUrl(){
-        return "ok";
     }
 }

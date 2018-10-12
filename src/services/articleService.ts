@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 
 import 'rxjs/add/operator/map';
 
@@ -9,15 +9,11 @@ import { Service } from './service';
 @Injectable()
 export class ArticleService extends Service {
 
-  //private anotacao: AnotacaoModel;
-
-  //private API_URL = 'https://reqres.in/api/'
-
-  constructor(public http: Http) {
-    super();
+  constructor(public http: HttpClient) {
+    super(http);
   }
 
-  public gett(){
-    return super.getUrl();
+  public getBaseUrl(){
+    return super.getBaseUrl();
   }
 }

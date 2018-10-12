@@ -5,10 +5,10 @@ import { Platform, NavParams, ViewController } from 'ionic-angular';
 import { AnnotationService } from '../../../services/annotationService';
 
 @Component({
-  selector: 'page-anotacao',
-  templateUrl: 'anotacao.html'
+  selector: 'page-annotation',
+  templateUrl: 'annotation.html'
 })
-export class AnotacaoModalPage {
+export class AnnotationModalPage {
   
   //private anotacaoModel: AnotacaoModel;
   private annotation = {};

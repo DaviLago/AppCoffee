@@ -2,7 +2,11 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 //Teste Model Diary
-import { DiaryModel } from '../../models/DiaryModel'
+//import { DiaryModel } from '../../models/DiaryModel'
+
+import { HomeService } from '../../services/homeService'
+
+
 
 @Component({
   selector: 'page-home',
@@ -10,11 +14,28 @@ import { DiaryModel } from '../../models/DiaryModel'
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, private homeService: HomeService) {
       
   }
 
+  public getBaseUrlTeste(event) {
+    console.log(event);
+    console.log("Url: " + this.homeService.getBaseUrl());
+  }
+
+  public getAllTeste(event){
+      this.homeService.getAll('09571450')
+      .subscribe(
+        data => console.log(data),
+        error => console.log(error)
+      );
+  }
+
+  
+
+
   //Teste com Model
+  /*
   public diary: DiaryModel;
   b(e:Event){
 
@@ -37,5 +58,5 @@ export class HomePage {
     this.diary = b;
     console.log(this.diary);
   }
-
+*/
 }

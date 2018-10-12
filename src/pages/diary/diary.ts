@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ActionSheetController, ModalController, AlertController  } from 'ionic-angular';
-import { AnotacaoModalPage } from './anotacao/anotacao';
+import { AnnotationModalPage } from './annotation/annotation';
 
 //import { AnotacaoModel } from '../../models/AnotacaoModel';
 import { AnnotationService } from '../../services/annotationService';
 
 @Component({
-  selector: 'page-diario',
-  templateUrl: 'diario.html'
+  selector: 'page-diary',
+  templateUrl: 'diary.html'
 })
-export class DiarioPage {
+export class DiaryPage {
   private anotacoes: Array<any>;
   private cont: number;
   //private anotacoesModel: Array<AnotacaoModel>;
@@ -53,7 +53,7 @@ export class DiarioPage {
   }
   
   presentModal(anotacao) {
-    const modal = this.modalCtrl.create(AnotacaoModalPage, anotacao);
+    const modal = this.modalCtrl.create(AnnotationModalPage, anotacao);
     modal.present();
     
     modal.onDidDismiss(anotacao => {

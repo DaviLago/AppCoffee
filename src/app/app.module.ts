@@ -2,10 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule, enableProdMode } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 //Providers
 import { AnnotationService } from '../services/annotationService';
 import { ArticleService } from '../services/articleService';
+import { HomeService } from '../services/homeService';
 import { Service } from '../services/service';
 
 //Pages
@@ -14,13 +16,13 @@ import { HomePage } from '../pages/home/home';
 import { TorraListPage } from '../pages/torra/torra';
 import { PreparoListPage } from '../pages/preparo/preparo';
 import { GraoListPage } from '../pages/grao/grao';
-import { DiarioPage } from '../pages/diario/diario';
+import { DiaryPage } from '../pages/diary/diary';
 import { LoginPage } from '../pages/login/login';
 import { CadastroPage } from '../pages/cadastro/cadastro';
 import { EsqueciSenhaPage } from '../pages/esqueci-senha/esqueci-senha';
 
 //Models
-import { AnotacaoModalPage } from '../pages/diario/anotacao/anotacao';
+import { AnnotationModalPage } from '../pages/diary/annotation/annotation';
 
 
 //Native
@@ -39,13 +41,14 @@ enableProdMode();
     TorraListPage,
     PreparoListPage,
     GraoListPage,
-    DiarioPage,
-    AnotacaoModalPage
+    DiaryPage,
+    AnnotationModalPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpModule
+    HttpModule,
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -57,8 +60,8 @@ enableProdMode();
     TorraListPage,
     PreparoListPage,
     GraoListPage,
-    DiarioPage,
-    AnotacaoModalPage
+    DiaryPage,
+    AnnotationModalPage
   ],
   providers: [
     StatusBar,
@@ -66,6 +69,7 @@ enableProdMode();
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AnnotationService,
     ArticleService,
+    HomeService,
     Service
   ]
 })

@@ -7,7 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { TorraListPage } from '../pages/torra/torra';
 import { PreparoListPage } from '../pages/preparo/preparo';
 import { GraoListPage } from '../pages/grao/grao';
-import { DiarioPage } from '../pages/diario/diario';
+import { DiaryPage } from '../pages/diary/diary';
 import { LoginPage } from '../pages/login/login';
 import { CadastroPage } from '../pages/cadastro/cadastro';
 import { EsqueciSenhaPage } from '../pages/esqueci-senha/esqueci-senha';
@@ -34,7 +34,7 @@ export class MyApp {
       { title: 'Torra', component: TorraListPage },
       { title: 'Método de Preparo', component: PreparoListPage },
       { title: 'Grão', component: GraoListPage },
-      { title: 'Diário', component: DiarioPage }
+      { title: 'Diário', component: DiaryPage }
     ];
 
   }

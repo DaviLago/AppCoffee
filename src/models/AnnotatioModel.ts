@@ -1,4 +1,4 @@
-export class AnotacaoModel{
+export class AnnotationModel{
     id: String;
 	cafeteria: string;
 	cafe: string;
