@@ -13,12 +13,8 @@ export class HomeService extends Service {
     super(http);
   }
 
-  public getUrl(path:String){
-    return super.getBaseUrl() + '/' + path + '/json';
-  }
-
   public getAll(cep:String): Observable<any> {
-    return this.http.get(this.getUrl(cep));
+    return this.http.get('http://viacep.com.br/ws/09571450/json');
   }
 
 

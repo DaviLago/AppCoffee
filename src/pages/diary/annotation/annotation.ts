@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { Platform, NavParams, ViewController } from 'ionic-angular';
+import { NavParams, ViewController, AlertController } from 'ionic-angular';
 
 //import { AnotacaoModel } from '../../../models/AnotacaoModel';
 import { AnnotationService } from '../../../services/annotationService';
+import { AnnotationModel } from '../../../models/AnnotationModel';
 
 @Component({
   selector: 'page-annotation',
@@ -10,21 +11,53 @@ import { AnnotationService } from '../../../services/annotationService';
 })
 export class AnnotationModalPage {
   
-  //private anotacaoModel: AnotacaoModel;
-  private annotation = {};
+  private annotation:AnnotationModel;
+  private editMode:Boolean = true;
 
-  constructor(public platform: Platform, public navParams: NavParams,
-              public viewCtrl: ViewController, public annotationService: AnnotationService) {
+  constructor(
+    public navParams: NavParams,
+    public viewCtrl: ViewController,
+    public alertCtrl: AlertController,
+    public annotationService: AnnotationService
+  ) {  
     this.annotation = navParams.data;
+    if(this.annotation.id === undefined)
+      this.editMode = false;
+  }
+
+  private putForm(annotation:AnnotationModel){
+    this.annotationService.putAnnotation(annotation)
+      .subscribe(
+        (data:AnnotationModel) => this.viewCtrl.dismiss(data, "put"),
+        (error:Error) => console.log(error.message)
+      );
+  }
+
+  private postForm(annotation:AnnotationModel){
+    this.annotationService.postAnnotation(annotation)
+      .subscribe(
+        (data:AnnotationModel) => this.viewCtrl.dismiss(data, "post"),
+        (error:Error) => console.log(error.message)
+      );
+  }
+
+  public deleteAnnotation(annotation:AnnotationModel){
+    this.annotationService.deleteAnnotation(annotation)
+      .subscribe(
+        (data:AnnotationModel) => this.viewCtrl.dismiss(data, "delete"),
+        (error:Error) => console.log(error.message)
+      );
   }
   
-  logForm() {
-    //console.log(this.anotacao);
-    this.viewCtrl.dismiss(this.annotation);
+  saveForm(annotation:AnnotationModel) {
+    if(this.editMode)
+      this.putForm(annotation)
+    else
+      this.postForm(annotation);
   }
 
-  modalCloseClickEvent() {
-    this.viewCtrl.dismiss(this.annotation);
+  modalCloseClickEvent(action:string) {
+    this.viewCtrl.dismiss(this.annotation, action);
   }
 
 }

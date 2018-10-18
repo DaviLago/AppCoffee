@@ -5,7 +5,7 @@ import { NavController } from 'ionic-angular';
 //import { DiaryModel } from '../../models/DiaryModel'
 
 import { HomeService } from '../../services/homeService'
-
+import { AnnotationService } from '../../services/annotationService'
 
 
 @Component({
@@ -14,7 +14,7 @@ import { HomeService } from '../../services/homeService'
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, private homeService: HomeService) {
+  constructor(public navCtrl: NavController, private homeService: HomeService, public annotationService:AnnotationService) {
       
   }
 
@@ -24,11 +24,17 @@ export class HomePage {
   }
 
   public getAllTeste(event){
+    this.annotationService.getAllAnnoations()
+    .subscribe(
+          data => console.log(data),
+          error => console.log(error)
+        );
+    /*
       this.homeService.getAll('09571450')
-      .subscribe(
-        data => console.log(data),
-        error => console.log(error)
-      );
+        .subscribe(
+          data => console.log(data),
+          error => console.log(error)
+        );*/
   }
 
   

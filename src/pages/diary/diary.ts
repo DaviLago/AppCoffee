@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, ActionSheetController, ModalController, AlertController  } from 'ionic-angular';
 import { AnnotationModalPage } from './annotation/annotation';
 
-//import { AnotacaoModel } from '../../models/AnotacaoModel';
+import { AnnotationModel } from '../../models/AnnotationModel';
 import { AnnotationService } from '../../services/annotationService';
 
 @Component({
@@ -10,73 +10,53 @@ import { AnnotationService } from '../../services/annotationService';
   templateUrl: 'diary.html'
 })
 export class DiaryPage {
-  private anotacoes: Array<any>;
-  private cont: number;
-  //private anotacoesModel: Array<AnotacaoModel>;
+  public annotations: Array<AnnotationModel>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
               public actionSheetCtrl: ActionSheetController, public modalCtrl: ModalController,
               public alertCtrl: AlertController, public annotationService: AnnotationService) {
-    this.cont = 0;
-    this.anotacoes = [];
-    for (let i = 1; i < 6; i++) {
-      this.anotacoes.push({
-        id: "" + i,
-        cafeteria: "cafeteria" + i,
-	      cafe: "cafe" + i,
-        barista: "barista" + i,
-        harmonizacao: "harmonização" + i,
-        complemento: "complemento" + i,
-        preparo: "preparo" + i,
-        descricao: "descrição" + i
-      });
-    }
-
-    let anotacao = {
-      id: "",
-      cafe: "cafe",
-      barista: "barista",
-      harmonizacao: "harmonização",
-      complemento: "complemento",
-      preparo: "preparo",
-      descricao: "descrição"
-    };
-    
-    this.anotacoes.push(anotacao);
-
-    //console.log(anotacaoProvider.getUrl());
-
+    this.getAllAnnotations();
+  }
+ 
+  public getAllAnnotations(){
+    this.annotationService.getAllAnnoations()
+    .subscribe(
+          (data) => {
+            this.annotations = data;
+          },
+          (error:Error) => {
+            console.log(error.message);
+          }
+        );
   }
   
-  anotationCreateClickEvent(e, anotacao) {
-    this.presentModal(anotacao);
+  public deleteAnnotation(annotation:AnnotationModel){
+    this.annotationService.deleteAnnotation(annotation).subscribe(
+      data => console.log(data),
+      (error:Error) => console.log(error.message)
+    );
   }
-  
-  presentModal(anotacao) {
-    const modal = this.modalCtrl.create(AnnotationModalPage, anotacao);
-    modal.present();
-    
-    modal.onDidDismiss(anotacao => {
-      if(anotacao.id){
-        this.anotacoes.find(a => {
-          a = anotacao;
-          return a.id === anotacao.id;
-        });
-      }
-      else{
-        this.cont = this.cont + 1;
-        anotacao.id = this.cont;
-        this.anotacoes.push(anotacao);
-      }
+
+  annotationCreateClickEvent(e, annotation) {
+    this.presentModal(annotation);
+  }
+
+  presentModal(annotation) {
+    const modal = this.modalCtrl.create(AnnotationModalPage, annotation);
+    modal.present();    
+    modal.onDidDismiss((annotation, action) => {
+      if(action === "post")
+        this.annotations.push(annotation);
+      else
+        this.getAllAnnotations();
     });
-    //console.log(this.anotacoes);
   }
 
-  anotationDeleteClickEvent(e, anotacao){
-    this.showConfirm(anotacao);
+  annotationDeleteClickEvent(e, annotation){
+    this.showConfirm(annotation);
   }
 
-  showConfirm(anotacao) {
+  showConfirm(annotation:AnnotationModel) {
     const confirm = this.alertCtrl.create({
       title: 'Deseja realmente exluir?',
       //message: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
@@ -91,8 +71,10 @@ export class DiaryPage {
           text: 'SIM',
           handler: () => {
             console.log('Sim clicked');
-            let index = this.anotacoes.findIndex(a => {return a.id === anotacao.id});
-            this.anotacoes.splice(index, 1);
+            this.deleteAnnotation(annotation);
+            console.log(this.annotations.findIndex(a => {return a.id === annotation.id}));
+			      let index = this.annotations.findIndex(a => {return a.id === annotation.id});
+            this.annotations.splice(index, 1);
           }
         }
       ]

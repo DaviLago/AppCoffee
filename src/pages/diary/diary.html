@@ -5,7 +5,7 @@
     </button>
     <ion-title>Diário</ion-title>
     <ion-buttons start>
-        <button ion-button (click)="anotationCreateClickEvent($event)">            
+        <button ion-button (click)="annotationCreateClickEvent($event)">            
             <ion-icon name="create"></ion-icon>
         </button>
     </ion-buttons>
@@ -14,46 +14,32 @@
 
 <ion-content class="outer-content">
   <ion-list text-wrap>
-
-    <ion-item-sliding>
-      <ion-item>        
-        <ion-grid>
-          <ion-row>
-            <ion-col col-12 no-padding>Título</ion-col>
-          </ion-row>
-          <ion-row>
-              <ion-col col-12 no-padding>Café</ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-item>
-      <ion-item-options side="right">
-        <button ion-button color="primary" icon-start>
-          <ion-icon name="md-create"></ion-icon>
-          Editar
-        </button>
-        <button ion-button color="danger" icon-start>
-          <ion-icon name="md-trash"></ion-icon>
-          Apagar
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
     
-    <div *ngFor="let anotacao of anotacoes">
+    <div *ngFor="let annotation of annotations">
     
       <ion-item-divider></ion-item-divider>
 
       <ion-item-sliding>
-        <ion-item (click)="anotationCreateClickEvent($event, anotacao)">  
-          <ion-row>{{anotacao.cafeteria}}</ion-row>
-          <ion-row>{{anotacao.cafe}}</ion-row>
-          <ion-row>{{anotacao.descricao}}</ion-row>
+        <ion-item (click)="annotationCreateClickEvent($event, annotation)">  
+          <ion-row>{{annotation.cafeteria}}</ion-row>
+          <ion-row>{{annotation.cafe}}</ion-row>
+          <ion-row>{{annotation.descricao}}</ion-row>
         </ion-item>
         <ion-item-options side="right">
-            <button ion-fab mini color="danger" (click)="anotationDeleteClickEvent($event, anotacao)"><ion-icon name="trash"></ion-icon></button>
+          <button ion-button color="primary" icon-start (click)="annotationCreateClickEvent($event, annotation)">
+            <ion-icon name="md-create"></ion-icon>
+            Editar
+          </button>
+          <button ion-button color="danger" icon-start (click)="annotationDeleteClickEvent($event, annotation)">
+            <ion-icon name="md-trash"></ion-icon>
+            Apagar
+          </button>
         </ion-item-options>
       </ion-item-sliding>
 
     </div>
-  </ion-list> 
+  </ion-list>
+
+  <div>{{teste}}</div>
 
 </ion-content>
