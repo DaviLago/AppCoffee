@@ -27,7 +27,7 @@ export class ArticleService extends Service {
   }
 
   public getAllArticlesByTheme(theme: Theme): Observable<Array<ArticleModel>> {
-    return this.http.get<Array<ArticleModel>>(`${super.getBaseUrl()}/article/theme/${theme}`);
+    return this.http.get<Array<ArticleModel>>(`${Service.getBaseUrl()}/article/theme/${theme}`);
   }
 
 }

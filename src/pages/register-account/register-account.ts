@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
+
 //Service
 import { UserService } from '../../services/userService';
 import { Service } from '../../services/service';
@@ -10,27 +11,25 @@ import { UserModel } from '../../models/UserModel';
 
 //Page
 import { HomePage } from '../home/home';
-import { RegisterAccountPage } from '../register-account/register-account';
-import { ForgotPasswordPage } from '../forgot-password/forgot-password';
 
 @Component({
-  selector: 'page-login',
-  templateUrl: 'login.html'
+  selector: 'page-register-account',
+  templateUrl: 'register-account.html'
 })
-export class LoginPage {
+export class RegisterAccountPage {
 
   private user: UserModel;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private userService: UserService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserService) {
     this.user = new UserModel();
   }
 
   saveForm(user: UserModel) {
-      this.postForm(user);
+    this.postForm(user);
   }
 
   private postForm(user: UserModel){
-    this.userService.getUserByEmailAndPassword(user)
+    this.userService.postUser(user)
       .subscribe(
         (user:UserModel) => {
           Service.setUser(user);
@@ -38,14 +37,6 @@ export class LoginPage {
         },
         (error:Error) => console.log(error.message)
       );
-  }
-
-  public createAccount(event){
-    this.navCtrl.push(RegisterAccountPage);
-  }
-
-  public forgotPassword(event){
-    this.navCtrl.push(ForgotPasswordPage);
   }
 
 }

@@ -1,12 +1,19 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Login</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Criar conta</ion-title>
   </ion-navbar>
 </ion-header>
-
 <ion-content class="outer-content">
   <form (ngSubmit)="saveForm(user)">
     <ion-list inset>
+      <ion-item>
+        <ion-label floating>Nome</ion-label>
+        <ion-input type="text" name="name" [(ngModel)]="user.name" required></ion-input>
+      </ion-item>
+
       <ion-item>
         <ion-label floating>Email</ion-label>
         <ion-input type="email" name="email" [(ngModel)]="user.email" required></ion-input>
@@ -18,12 +25,7 @@
       </ion-item>
     </ion-list>
     
-    <ion-row padding-horizontal>
-        <button ion-button round class="submit-btn" full type="submit" >Login</button>
-    </ion-row>
+    <button ion-button round class="submit-btn" full type="submit" >Cadastrar</button>
+
   </form>
-
-  <button ion-button clear marging-horizontal float-right (click)='createAccount($event)'>Criar nova conta</button>
-  <!-- <button ion-button clear marging-horizontal float-right (click)='forgotPassword($event)'>Esqueci a senha</button> -->
-
 </ion-content>

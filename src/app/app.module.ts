@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AnnotationService } from '../services/annotationService';
 import { ArticleService } from '../services/articleService';
 import { HomeService } from '../services/homeService';
+import { UserService } from '../services/userService';
 import { Service } from '../services/service';
 
 //Pages
@@ -18,8 +19,8 @@ import { PreparoListPage } from '../pages/preparo/preparo';
 import { GraoListPage } from '../pages/grao/grao';
 import { DiaryPage } from '../pages/diary/diary';
 import { LoginPage } from '../pages/login/login';
-import { CadastroPage } from '../pages/cadastro/cadastro';
-import { EsqueciSenhaPage } from '../pages/esqueci-senha/esqueci-senha';
+import { RegisterAccountPage } from '../pages/register-account/register-account';
+import { ForgotPasswordPage } from '../pages/forgot-password/forgot-password';
 import { AnnotationDetailPage } from '../pages/diary/annotation-detail/annotation-detail';
 import { AnnotationFormModalPage } from '../pages/diary/annotation-form/annotation-form';
 import { ArticlesPage } from '../pages/articles/articles';
@@ -37,8 +38,8 @@ enableProdMode();
     MyApp,
     HomePage,
     LoginPage,
-    CadastroPage,
-    EsqueciSenhaPage,
+    RegisterAccountPage,
+    ForgotPasswordPage,
     TorraListPage,
     PreparoListPage,
     GraoListPage,
@@ -59,8 +60,8 @@ enableProdMode();
     MyApp,
     HomePage,
     LoginPage,
-    CadastroPage,
-    EsqueciSenhaPage,
+    RegisterAccountPage,
+    ForgotPasswordPage,
     TorraListPage,
     PreparoListPage,
     GraoListPage,
@@ -77,6 +78,7 @@ enableProdMode();
     AnnotationService,
     ArticleService,
     HomeService,
+    UserService,
     Service
   ]
 })

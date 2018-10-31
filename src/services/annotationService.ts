@@ -24,19 +24,19 @@ export class AnnotationService extends Service {
   }
 
   public getAllAnnoations(): Observable<Array<AnnotationModel>> {
-    return this.http.get<Array<AnnotationModel>>(`${super.getBaseUrl()}/annotation`);
+    return this.http.get<Array<AnnotationModel>>(`${Service.getBaseUrl()}/annotation`);
   }
 
   public postAnnotation(annotation: AnnotationModel):Observable<AnnotationModel>{
-    return this.http.post<AnnotationModel>(`${super.getBaseUrl()}/annotation`, annotation, this.httpOptions);
+    return this.http.post<AnnotationModel>(`${Service.getBaseUrl()}/annotation`, annotation,  this.httpOptions);
   }
 
   public putAnnotation(annotation: AnnotationModel):Observable<AnnotationModel>{
-    return this.http.put<AnnotationModel>(`${super.getBaseUrl()}/annotation/${annotation.id}`, annotation, this.httpOptions);
+    return this.http.put<AnnotationModel>(`${Service.getBaseUrl()}/annotation/${annotation.id}`, annotation, this.httpOptions);
   }
 
   public deleteAnnotation(annotation: AnnotationModel):Observable<AnnotationModel>{
-    return this.http.delete<AnnotationModel>(`${super.getBaseUrl()}/annotation/${annotation.id}`, this.httpOptions);
+    return this.http.delete<AnnotationModel>(`${Service.getBaseUrl()}/annotation/${annotation.id}`, this.httpOptions);
   }
 
 }

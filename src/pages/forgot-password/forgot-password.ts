@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 @Component({
-  selector: 'page-esqueci-senha',
-  templateUrl: 'esqueci-senha.html'
+  selector: 'page-forgot-password',
+  templateUrl: 'forgot-password.html'
 })
-export class EsqueciSenhaPage {
+export class ForgotPasswordPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     

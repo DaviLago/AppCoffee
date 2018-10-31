@@ -15,30 +15,8 @@ import { AnnotationService } from '../../services/annotationService'
 export class HomePage {
 
   constructor(public navCtrl: NavController, private homeService: HomeService, public annotationService:AnnotationService) {
-      
+      console.log(HomeService.getUser());
   }
-
-  public getBaseUrlTeste(event) {
-    console.log(event);
-    console.log("Url: " + this.homeService.getBaseUrl());
-  }
-
-  public getAllTeste(event){
-    this.annotationService.getAllAnnoations()
-    .subscribe(
-          data => console.log(data),
-          error => console.log(error)
-        );
-    /*
-      this.homeService.getAll('09571450')
-        .subscribe(
-          data => console.log(data),
-          error => console.log(error)
-        );*/
-  }
-
-  
-
 
   //Teste com Model
   /*

@@ -1,5 +1,8 @@
+import { UserModel } from "./UserModel";
+
 export class AnnotationModel{
     id: String;
+    user: UserModel;
 	cafeteria: string;
 	cafe: string;
 	barista: string;
@@ -10,6 +13,7 @@ export class AnnotationModel{
 
     constructor(annotation:AnnotationModel){
         this.id = annotation.id;
+        this.user = annotation.user;
         this.cafeteria = annotation.cafeteria;
         this.cafe = annotation.cafe;
         this.barista = annotation.barista;
