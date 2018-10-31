@@ -1,0 +1,42 @@
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Anotação</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content class="outer-content">
+
+    <div padding-horizontal>  
+               
+      <h3 ion-text color="primary">Cafeteria</h3>
+      <ion-row>{{annotation.cafeteria}}</ion-row>
+          
+      <h3 ion-text color="primary">Café</h3>
+      <ion-row>{{annotation.cafe}}</ion-row>
+          
+      <h3 ion-text color="primary">Barista</h3>
+      <ion-row>{{annotation.barista}}</ion-row>
+          
+      <h3 ion-text color="primary">Harmonização</h3>
+      <ion-row>{{annotation.harmonizacao}}</ion-row>
+  
+      <h3 ion-text color="primary">Complemento</h3>
+      <ion-row>{{annotation.complemento}}</ion-row>
+  
+      <h3 ion-text color="primary">Método de Preparo</h3>
+      <ion-row>{{annotation.metodoPreparo}}</ion-row>
+  
+      <h3 ion-text color="primary">Descrição</h3>
+      <ion-row>{{annotation.descricao}}</ion-row>
+
+      <div padding-top>
+        <button ion-button round color="danger" (click)='annotationDeleteClickEvent($event)'>Deletar</button>
+        <button ion-button float-right round color="primary" (click)='presentModal($event)'>Editar</button>
+      </div>
+
+    </div>   
+
+  </ion-content>

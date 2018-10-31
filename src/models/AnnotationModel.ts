@@ -5,6 +5,18 @@ export class AnnotationModel{
 	barista: string;
 	harmonizacao: string;
     complemento: string;
-    preparo: string;
+    metodoPreparo: string;
     descricao: string;
+
+    constructor(annotation:AnnotationModel){
+        this.id = annotation.id;
+        this.cafeteria = annotation.cafeteria;
+        this.cafe = annotation.cafe;
+        this.barista = annotation.barista;
+        this.harmonizacao = annotation.harmonizacao;
+        this.complemento = annotation.complemento;
+        this.metodoPreparo = annotation.metodoPreparo;
+        this.descricao = annotation.descricao;
+    }
+
 }

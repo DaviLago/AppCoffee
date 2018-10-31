@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Testability } from '@angular/core';
 import { NavController, NavParams, ActionSheetController, ModalController, AlertController  } from 'ionic-angular';
-import { AnnotationModalPage } from './annotation/annotation';
+
+import { AnnotationFormModalPage } from './annotation-form/annotation-form';
+import { AnnotationDetailPage } from './annotation-detail/annotation-detail';
 
 import { AnnotationModel } from '../../models/AnnotationModel';
 import { AnnotationService } from '../../services/annotationService';
@@ -10,9 +12,10 @@ import { AnnotationService } from '../../services/annotationService';
   templateUrl: 'diary.html'
 })
 export class DiaryPage {
+  
   public annotations: Array<AnnotationModel>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, 
+  constructor(public navCtrl: NavController, public navParams: NavParams,
               public actionSheetCtrl: ActionSheetController, public modalCtrl: ModalController,
               public alertCtrl: AlertController, public annotationService: AnnotationService) {
     this.getAllAnnotations();
@@ -21,13 +24,13 @@ export class DiaryPage {
   public getAllAnnotations(){
     this.annotationService.getAllAnnoations()
     .subscribe(
-          (data) => {
-            this.annotations = data;
-          },
-          (error:Error) => {
-            console.log(error.message);
-          }
-        );
+      (data) => {
+        this.annotations = data;
+      },
+      (error:Error) => {
+        console.log(error.message);
+      }
+    );
   }
   
   public deleteAnnotation(annotation:AnnotationModel){
@@ -42,7 +45,7 @@ export class DiaryPage {
   }
 
   presentModal(annotation) {
-    const modal = this.modalCtrl.create(AnnotationModalPage, annotation);
+    const modal = this.modalCtrl.create(AnnotationFormModalPage, annotation);
     modal.present();    
     modal.onDidDismiss((annotation, action) => {
       if(action === "post")
@@ -81,5 +84,12 @@ export class DiaryPage {
     });
     confirm.present();
   }
-  
+
+  itemTapped(event, annotation) {
+    this.navCtrl.push(AnnotationDetailPage, {
+      annotation: annotation,
+      annotations: this.annotations
+    });
+  }
+
 }

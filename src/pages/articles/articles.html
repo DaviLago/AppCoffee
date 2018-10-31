@@ -1,0 +1,26 @@
+<ion-header>
+        <ion-navbar>
+            <button ion-button menuToggle>
+                <ion-icon name="menu"></ion-icon>
+            </button>
+            <ion-title>Artigos sobre {{item.title}}</ion-title>
+        </ion-navbar>
+    </ion-header>
+          
+    <ion-content class="outer-content">
+
+        <ion-list text-wrap>
+            <div *ngFor="let article of articles">
+                <ion-item-sliding>
+                    <ion-item-divider></ion-item-divider>
+                    <ion-item (click)="itemTapped($event, article)">
+                        <ion-row>{{article.title}}</ion-row>
+                        <ion-row>{{article.theme}}</ion-row>
+                    </ion-item>
+                </ion-item-sliding>
+            </div>
+        </ion-list>
+
+        <h4 padding-horizontal padding-vertical>{{EmptyListMessage}}</h4>
+        
+    </ion-content>

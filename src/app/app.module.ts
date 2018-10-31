@@ -20,9 +20,10 @@ import { DiaryPage } from '../pages/diary/diary';
 import { LoginPage } from '../pages/login/login';
 import { CadastroPage } from '../pages/cadastro/cadastro';
 import { EsqueciSenhaPage } from '../pages/esqueci-senha/esqueci-senha';
-
-//Models
-import { AnnotationModalPage } from '../pages/diary/annotation/annotation';
+import { AnnotationDetailPage } from '../pages/diary/annotation-detail/annotation-detail';
+import { AnnotationFormModalPage } from '../pages/diary/annotation-form/annotation-form';
+import { ArticlesPage } from '../pages/articles/articles';
+import { ArticleDetailPage } from '../pages/articles/article-detail/article-detail';
 
 
 //Native
@@ -42,7 +43,10 @@ enableProdMode();
     PreparoListPage,
     GraoListPage,
     DiaryPage,
-    AnnotationModalPage
+    AnnotationDetailPage,
+    AnnotationFormModalPage,
+    ArticlesPage,
+    ArticleDetailPage
   ],
   imports: [
     BrowserModule,
@@ -61,7 +65,10 @@ enableProdMode();
     PreparoListPage,
     GraoListPage,
     DiaryPage,
-    AnnotationModalPage
+    AnnotationDetailPage,
+    AnnotationFormModalPage,
+    ArticlesPage,
+    ArticleDetailPage
   ],
   providers: [
     StatusBar,

@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
+import { ArticlesPage } from '../articles/articles';
+import { Theme } from '../../enums/TemaEnum';
+
 @Component({
   selector: 'grao-list',
   templateUrl: 'grao.html'
@@ -16,12 +19,14 @@ export class GraoListPage {
    var arabica = {
     title: 'Grão Arábica' ,
     note: 'Descricao do Grão Arábica' ,
-    icon: 'ios-leaf-outline'
+    icon: 'ios-leaf-outline',
+    theme: Theme.GRAO_ARABICA
   }
   var robusta = {
     title: 'Grão Robusta' ,
     note: 'Descricao do Grão Robusta' ,
-    icon: 'ios-leaf-outline'
+    icon: 'ios-leaf-outline',
+    theme: Theme.GRAO_ROBUSTA
   }
  
     this.items = [arabica,robusta];
@@ -29,7 +34,7 @@ export class GraoListPage {
 
   itemTapped(event, item) {
     // That's right, we're pushing to ourselves!
-    this.navCtrl.push(GraoListPage, {
+    this.navCtrl.setRoot(ArticlesPage, {
       item: item
     });
   }

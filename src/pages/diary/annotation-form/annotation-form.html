@@ -2,7 +2,7 @@
     <ion-toolbar>
         <ion-title>Anotação</ion-title>
         <ion-buttons start>
-        <button ion-button (click)="modalCloseClickEvent()">            
+        <button ion-button (click)="modalCloseClickEvent('close')">            
             <ion-icon name="close"></ion-icon>
         </button>
         </ion-buttons>
@@ -33,7 +33,7 @@
         </ion-item>
         <ion-item>
             <ion-label floating>Método de Preparo</ion-label>
-            <ion-input type="text" [(ngModel)]="annotation.preparo" name="preparo"></ion-input>
+            <ion-input type="text" [(ngModel)]="annotation.metodoPreparo" name="preparo"></ion-input>
         </ion-item>
         <ion-item>
             <ion-label floating>Descrição</ion-label>

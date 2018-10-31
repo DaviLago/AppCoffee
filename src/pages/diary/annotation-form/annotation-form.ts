@@ -1,15 +1,14 @@
 import { Component } from '@angular/core';
 import { NavParams, ViewController, AlertController } from 'ionic-angular';
 
-//import { AnotacaoModel } from '../../../models/AnotacaoModel';
 import { AnnotationService } from '../../../services/annotationService';
 import { AnnotationModel } from '../../../models/AnnotationModel';
 
 @Component({
-  selector: 'page-annotation',
-  templateUrl: 'annotation.html'
+  selector: 'page-annotation-form',
+  templateUrl: 'annotation-form.html'
 })
-export class AnnotationModalPage {
+export class AnnotationFormModalPage {
   
   private annotation:AnnotationModel;
   private editMode:Boolean = true;
@@ -51,7 +50,7 @@ export class AnnotationModalPage {
   
   saveForm(annotation:AnnotationModel) {
     if(this.editMode)
-      this.putForm(annotation)
+      this.putForm(annotation);
     else
       this.postForm(annotation);
   }

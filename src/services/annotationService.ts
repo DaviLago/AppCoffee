@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { HttpHeaders } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 
+//Super service
 import { Service } from './service';
+
+//Model
 import { AnnotationModel } from '../models/AnnotationModel';
 
 @Injectable()
@@ -24,15 +27,15 @@ export class AnnotationService extends Service {
     return this.http.get<Array<AnnotationModel>>(`${super.getBaseUrl()}/annotation`);
   }
 
-  public postAnnotation(annotation:AnnotationModel):Observable<AnnotationModel>{
+  public postAnnotation(annotation: AnnotationModel):Observable<AnnotationModel>{
     return this.http.post<AnnotationModel>(`${super.getBaseUrl()}/annotation`, annotation, this.httpOptions);
   }
 
-  public putAnnotation(annotation:AnnotationModel):Observable<AnnotationModel>{
+  public putAnnotation(annotation: AnnotationModel):Observable<AnnotationModel>{
     return this.http.put<AnnotationModel>(`${super.getBaseUrl()}/annotation/${annotation.id}`, annotation, this.httpOptions);
   }
 
-  public deleteAnnotation(annotation:AnnotationModel):Observable<AnnotationModel>{
+  public deleteAnnotation(annotation: AnnotationModel):Observable<AnnotationModel>{
     return this.http.delete<AnnotationModel>(`${super.getBaseUrl()}/annotation/${annotation.id}`, this.httpOptions);
   }
 
