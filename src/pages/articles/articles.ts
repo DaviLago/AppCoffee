@@ -24,6 +24,14 @@ export class ArticlesPage {
         this.getAllArticlesByTheme(this.item.theme);
     }
 
+    public getArticles(): Array<ArticleModel>{
+        return this.articles;
+    }
+
+    public getEmptyListMessage(): String{
+        return this.EmptyListMessage
+    }
+
     public getAllArticlesByTheme(theme: Theme){
         this.articleService.getAllArticlesByTheme(theme)
           .subscribe(
@@ -37,14 +45,14 @@ export class ArticlesPage {
             (error:Error) => {
               console.log(error.message);
             }
-          );
-      }
+        );
+    }
 
     itemTapped(event, article) {
-    this.navCtrl.push(ArticleDetailPage, {
-        article: article,
-        title: this.item.title
-    });
+        this.navCtrl.push(ArticleDetailPage, {
+            article: article,
+            title: this.item.title
+        });
     }
 
 }

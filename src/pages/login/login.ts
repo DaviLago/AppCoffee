@@ -25,6 +25,10 @@ export class LoginPage {
     UserService.setUser(new UserModel());
   }
 
+  public getUser(): UserModel{
+    return this.user;
+  }
+
   saveForm(user: UserModel) {
       this.postForm(user);
   }
@@ -40,11 +44,11 @@ export class LoginPage {
       );
   }
 
-  public createAccount(event){
+  public createAccount(){
     this.navCtrl.push(RegisterAccountPage);
   }
 
-  public forgotPassword(event){
+  public forgotPassword(){
     this.navCtrl.push(ForgotPasswordPage);
   }
 

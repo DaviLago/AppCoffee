@@ -24,6 +24,10 @@ export class RegisterAccountPage {
     this.user = new UserModel();
   }
 
+  public getUser(): UserModel{
+    return this.user;
+  }
+
   saveForm(user: UserModel) {
     this.postForm(user);
   }

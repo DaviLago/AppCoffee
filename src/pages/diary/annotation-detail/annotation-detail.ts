@@ -47,7 +47,7 @@ export class AnnotationDetailPage {
   showConfirm() {
     const confirm = this.alertCtrl.create({
       title: 'Deseja realmente exluir?',
-      //message: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
+      //message: '',
       buttons: [
         {
           text: 'NÃO',

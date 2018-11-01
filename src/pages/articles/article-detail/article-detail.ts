@@ -17,4 +17,12 @@ export class ArticleDetailPage {
         this.title = navParams.get("title");
     }
 
+    public getArticle(): ArticleModel{
+        return this.article;
+    }
+
+    public getTitle(): String{
+        return this.title;
+    }
+
 }

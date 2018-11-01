@@ -9,8 +9,6 @@ import { PreparoListPage } from '../pages/preparo/preparo';
 import { GraoListPage } from '../pages/grao/grao';
 import { DiaryPage } from '../pages/diary/diary';
 import { LoginPage } from '../pages/login/login';
-import { RegisterAccountPage } from '../pages/register-account/register-account';
-import { ForgotPasswordPage } from '../pages/forgot-password/forgot-password';
 
 @Component({
   templateUrl: 'app.html'
@@ -25,12 +23,8 @@ export class MyApp {
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
-    // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
-      // { title: 'Login', component: LoginPage },
-      // { title: 'Cadastro', component: RegisterAccountPage },
-      // { title: 'Esqueci Senha', component: ForgotPasswordPage },
       { title: 'Torra', component: TorraListPage },
       { title: 'Método de Preparo', component: PreparoListPage },
       { title: 'Grão', component: GraoListPage },
@@ -42,16 +36,12 @@ export class MyApp {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
   }
 
   openPage(page) {
-    // Reset the content nav to have just this page
-    // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
 }

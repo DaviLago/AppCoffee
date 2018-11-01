@@ -1,4 +1,4 @@
-import { Component, Testability } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavController, NavParams, ActionSheetController, ModalController, AlertController  } from 'ionic-angular';
 
 import { AnnotationFormModalPage } from './annotation-form/annotation-form';
@@ -62,7 +62,7 @@ export class DiaryPage {
   showConfirm(annotation:AnnotationModel) {
     const confirm = this.alertCtrl.create({
       title: 'Deseja realmente exluir?',
-      //message: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
+      //message: '',
       buttons: [
         {
           text: 'NÃO',
