@@ -23,6 +23,10 @@ export class UserService extends Service {
     super(http);
   }
 
+  public static setUser(user:UserModel){
+    Service.setUser(user);
+  }
+
   public getUserByEmailAndPassword(user: UserModel): Observable<UserModel> {
     return this.http.get<UserModel>(`${Service.getBaseUrl()}/user/auth/${user.email}/${user.password}`);
   }

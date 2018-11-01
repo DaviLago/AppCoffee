@@ -14,7 +14,7 @@ export class Service {
         return this.baseURL;
     }
 
-    public static getUser(){
+    public static getUser(): UserModel{
         return this.user;
     }
     public static setUser(user: UserModel){

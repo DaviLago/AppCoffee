@@ -34,7 +34,8 @@ export class MyApp {
       { title: 'Torra', component: TorraListPage },
       { title: 'Método de Preparo', component: PreparoListPage },
       { title: 'Grão', component: GraoListPage },
-      { title: 'Diário', component: DiaryPage }
+      { title: 'Diário', component: DiaryPage },
+      { title: 'Sair', component: LoginPage }
     ];
 
   }

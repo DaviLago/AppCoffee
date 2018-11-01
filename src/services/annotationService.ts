@@ -13,30 +13,33 @@ import { AnnotationModel } from '../models/AnnotationModel';
 @Injectable()
 export class AnnotationService extends Service {
 
-  private httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type':  'application/json'
-    })
-  };
+  private httpOptions = {};
 
   constructor(public http: HttpClient) {
     super(http);
+    this.httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'userId': Service.getUser().id
+      })
+    };
   }
 
   public getAllAnnoations(): Observable<Array<AnnotationModel>> {
-    return this.http.get<Array<AnnotationModel>>(`${Service.getBaseUrl()}/annotation`);
+    return this.http.get<Array<AnnotationModel>>(`${Service.getBaseUrl()}/user/${Service.getUser().id}/annotation`, this.httpOptions);
   }
 
   public postAnnotation(annotation: AnnotationModel):Observable<AnnotationModel>{
-    return this.http.post<AnnotationModel>(`${Service.getBaseUrl()}/annotation`, annotation,  this.httpOptions);
+    annotation.user = Service.getUser();
+    return this.http.post<AnnotationModel>(`${Service.getBaseUrl()}/user/${Service.getUser().id}/annotation`, annotation,  this.httpOptions);
   }
 
   public putAnnotation(annotation: AnnotationModel):Observable<AnnotationModel>{
-    return this.http.put<AnnotationModel>(`${Service.getBaseUrl()}/annotation/${annotation.id}`, annotation, this.httpOptions);
+    return this.http.put<AnnotationModel>(`${Service.getBaseUrl()}/user/${Service.getUser().id}/annotation/${annotation.id}`, annotation, this.httpOptions);
   }
 
   public deleteAnnotation(annotation: AnnotationModel):Observable<AnnotationModel>{
-    return this.http.delete<AnnotationModel>(`${Service.getBaseUrl()}/annotation/${annotation.id}`, this.httpOptions);
+    return this.http.delete<AnnotationModel>(`${Service.getBaseUrl()}/user/${Service.getUser().id}/annotation/${annotation.id}`, this.httpOptions);
   }
 
 }

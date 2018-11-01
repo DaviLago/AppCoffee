@@ -3,7 +3,6 @@ import { NavController, NavParams } from 'ionic-angular';
 
 //Service
 import { UserService } from '../../services/userService';
-import { Service } from '../../services/service';
 
 //Model
 import { UserModel } from '../../models/UserModel';
@@ -23,6 +22,7 @@ export class LoginPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private userService: UserService) {
     this.user = new UserModel();
+    UserService.setUser(new UserModel());
   }
 
   saveForm(user: UserModel) {
@@ -33,7 +33,7 @@ export class LoginPage {
     this.userService.getUserByEmailAndPassword(user)
       .subscribe(
         (user:UserModel) => {
-          Service.setUser(user);
+          UserService.setUser(user);
           this.navCtrl.setRoot(HomePage);
         },
         (error:Error) => console.log(error.message)
