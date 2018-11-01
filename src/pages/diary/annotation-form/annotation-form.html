@@ -12,6 +12,10 @@
   <ion-content>
     <form (ngSubmit)="saveForm(annotation)">
         <ion-item>
+            <ion-label floating>Título</ion-label>
+            <ion-input type="text" [(ngModel)]="annotation.title" name="title"></ion-input>
+        </ion-item>  
+        <ion-item>
             <ion-label floating>Cafeteria</ion-label>
             <ion-input type="text" [(ngModel)]="annotation.cafeteria" name="cafeteria"></ion-input>
         </ion-item>        

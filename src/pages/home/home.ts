@@ -15,7 +15,7 @@ import { AnnotationService } from '../../services/annotationService'
 export class HomePage {
 
   constructor(public navCtrl: NavController, private homeService: HomeService, public annotationService:AnnotationService) {
-      console.log(HomeService.getUser());
+      
   }
 
   //Teste com Model

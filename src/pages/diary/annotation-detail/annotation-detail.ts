@@ -13,14 +13,12 @@ export class AnnotationDetailPage {
 
   public annotation: AnnotationModel;
   public annotations: Array<AnnotationModel>;
-  public annotationOriginal: AnnotationModel;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
               public actionSheetCtrl: ActionSheetController, public modalCtrl: ModalController,
               public alertCtrl: AlertController, public annotationService: AnnotationService) {
         this.annotation = navParams.get('annotation');
         this.annotations = navParams.get('annotations');
-        this.annotationOriginal = new AnnotationModel(this.annotation);
   }
  
   public deleteAnnotation(annotation:AnnotationModel){
@@ -31,13 +29,13 @@ export class AnnotationDetailPage {
   }
 
   presentModal(e) {
-    const modal = this.modalCtrl.create(AnnotationFormModalPage, this.annotation);
+    const modal = this.modalCtrl.create(AnnotationFormModalPage, new AnnotationModel(this.annotation));
     modal.present();    
     modal.onDidDismiss((annotation, action) => {
-      if(action === "close"){
-        this.annotation = this.annotationOriginal;
+      if(action === "put"){
+        this.annotation = annotation
         let index = this.annotations.findIndex(a => {return a.id === this.annotation.id});
-        this.annotations[index] = this.annotationOriginal;
+        this.annotations[index] = this.annotation;
       }
     });
   }

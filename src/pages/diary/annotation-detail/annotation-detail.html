@@ -11,6 +11,9 @@
 
     <div padding-horizontal>  
                
+      <h3 ion-text color="primary">Título</h3>
+      <ion-row>{{annotation.title}}</ion-row>
+
       <h3 ion-text color="primary">Cafeteria</h3>
       <ion-row>{{annotation.cafeteria}}</ion-row>
           
@@ -33,8 +36,8 @@
       <ion-row>{{annotation.descricao}}</ion-row>
 
       <div padding-top>
-        <button ion-button round color="danger" (click)='annotationDeleteClickEvent($event)'>Deletar</button>
-        <button ion-button float-right round color="primary" (click)='presentModal($event)'>Editar</button>
+        <button ion-button round color="primary" (click)='presentModal($event)'>Editar</button>
+        <button ion-button round color="danger" float-right (click)='annotationDeleteClickEvent($event)'>Deletar</button>
       </div>
 
     </div>   
