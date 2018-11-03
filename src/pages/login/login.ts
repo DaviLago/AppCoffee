@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ToastController } from 'ionic-angular';
 
 //Service
 import { UserService } from '../../services/userService';
@@ -20,7 +20,8 @@ export class LoginPage {
 
   private user: UserModel;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private userService: UserService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private userService: UserService, 
+              private toastCtrl: ToastController) {
     this.user = new UserModel();
     UserService.setUser(new UserModel());
   }
@@ -40,7 +41,10 @@ export class LoginPage {
           UserService.setUser(user);
           this.navCtrl.setRoot(HomePage);
         },
-        (error:Error) => console.log(error.message)
+        (error:Error) => {
+          console.log(error.message);
+          this.presentToast(error);
+        }
       );
   }
 
@@ -50,6 +54,20 @@ export class LoginPage {
 
   public forgotPassword(){
     this.navCtrl.push(ForgotPasswordPage);
+  }
+
+  presentToast(error:Error) {
+    let toast = this.toastCtrl.create({
+      message: error.message,
+      duration: 3000,
+      position: 'bottom'
+    });
+  
+    // toast.onDidDismiss(() => {
+    //   console.log('Dismissed toast');
+    // });
+  
+    toast.present();
   }
 
 }

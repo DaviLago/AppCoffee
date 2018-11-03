@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ToastController } from 'ionic-angular';
 
 
 //Service
@@ -20,7 +20,8 @@ export class RegisterAccountPage {
 
   private user: UserModel;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserService,
+              private toastCtrl: ToastController) {
     this.user = new UserModel();
   }
 
@@ -39,8 +40,25 @@ export class RegisterAccountPage {
           Service.setUser(user);
           this.navCtrl.setRoot(HomePage);
         },
-        (error:Error) => console.log(error.message)
+        (error:Error) => {
+          console.log(error.message);
+          this.presentToast(error);
+        }
       );
+  }
+
+  presentToast(error:Error) {
+    let toast = this.toastCtrl.create({
+      message: error.message,
+      duration: 3000,
+      position: 'bottom'
+    });
+  
+    // toast.onDidDismiss(() => {
+    //   console.log('Dismissed toast');
+    // });
+  
+    toast.present();
   }
 
 }
