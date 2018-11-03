@@ -11,9 +11,9 @@
   
   <ion-content>
     <form (ngSubmit)="saveForm(annotation)">
-        <ion-item>
+        <ion-item [formGroup] = "validator">
             <ion-label floating>Título</ion-label>
-            <ion-input type="text" [(ngModel)]="annotation.title" name="title"></ion-input>
+            <ion-input type="text" [(ngModel)]="annotation.title" name="title" formControlName="title"></ion-input>
         </ion-item>  
         <ion-item>
             <ion-label floating>Cafeteria</ion-label>

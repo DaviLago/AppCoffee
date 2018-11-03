@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ActionSheetController, ModalController, AlertController  } from 'ionic-angular';
+import { NavController, NavParams, ActionSheetController, ModalController, AlertController, Loading, LoadingController  } from 'ionic-angular';
 
 import { AnnotationFormModalPage } from './annotation-form/annotation-form';
 import { AnnotationDetailPage } from './annotation-detail/annotation-detail';
@@ -14,14 +14,17 @@ import { AnnotationService } from '../../services/annotationService';
 export class DiaryPage {
   
   public annotations: Array<AnnotationModel>;
+  private loading: Loading;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public actionSheetCtrl: ActionSheetController, public modalCtrl: ModalController,
-              public alertCtrl: AlertController, public annotationService: AnnotationService) {
+              public alertCtrl: AlertController, public annotationService: AnnotationService,
+              public loadingCtrl: LoadingController) {
     this.getAllAnnotations();
   }
  
   public getAllAnnotations(){
+    this.openLoading();
     this.annotationService.getAllAnnoations()
     .subscribe(
       (data) => {
@@ -31,13 +34,16 @@ export class DiaryPage {
         console.log(error.message);
       }
     );
+    this.closeLoading();
   }
   
   public deleteAnnotation(annotation:AnnotationModel){
+    this.openLoading();
     this.annotationService.deleteAnnotation(annotation).subscribe(
       data => console.log(data),
       (error:Error) => console.log(error.message)
     );
+    this.closeLoading();
   }
 
   annotationCreateClickEvent(e, annotation) {
@@ -90,6 +96,15 @@ export class DiaryPage {
       annotation: annotation,
       annotations: this.annotations
     });
+  }
+
+  openLoading(){
+    this.loading = this.loadingCtrl.create();
+    this.loading.present();
+  }
+
+  closeLoading() {
+    this.loading.dismiss();
   }
 
 }

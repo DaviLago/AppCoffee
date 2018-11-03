@@ -10,29 +10,29 @@
   <ion-content class="outer-content">
 
     <div padding-horizontal>  
-               
+       
       <h3 ion-text color="primary">Título</h3>
       <ion-row>{{annotation.title}}</ion-row>
 
-      <h3 ion-text color="primary">Cafeteria</h3>
+      <h3 ion-text color="primary" *ngIf="annotation.cafeteria">Cafeteria</h3>
       <ion-row>{{annotation.cafeteria}}</ion-row>
           
-      <h3 ion-text color="primary">Café</h3>
+      <h3 ion-text color="primary" *ngIf="annotation.cafe">Café</h3>
       <ion-row>{{annotation.cafe}}</ion-row>
           
-      <h3 ion-text color="primary">Barista</h3>
+      <h3 ion-text color="primary" *ngIf="annotation.barista">Barista</h3>
       <ion-row>{{annotation.barista}}</ion-row>
           
-      <h3 ion-text color="primary">Harmonização</h3>
+      <h3 ion-text color="primary" *ngIf="annotation.harmonizacao">Harmonização</h3>
       <ion-row>{{annotation.harmonizacao}}</ion-row>
   
-      <h3 ion-text color="primary">Complemento</h3>
+      <h3 ion-text color="primary" *ngIf="annotation.complemento">Complemento</h3>
       <ion-row>{{annotation.complemento}}</ion-row>
   
-      <h3 ion-text color="primary">Método de Preparo</h3>
+      <h3 ion-text color="primary" *ngIf="annotation.metodoPreparo">Método de Preparo</h3>
       <ion-row>{{annotation.metodoPreparo}}</ion-row>
   
-      <h3 ion-text color="primary">Descrição</h3>
+      <h3 ion-text color="primary" *ngIf="annotation.descricao">Descrição</h3>
       <ion-row>{{annotation.descricao}}</ion-row>
 
       <div padding-top>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ToastController } from 'ionic-angular';
+import { NavController, NavParams, ToastController, LoadingController, Loading } from 'ionic-angular';
 
 
 //Service
@@ -11,6 +11,8 @@ import { UserModel } from '../../models/UserModel';
 
 //Page
 import { HomePage } from '../home/home';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'page-register-account',
@@ -19,10 +21,25 @@ import { HomePage } from '../home/home';
 export class RegisterAccountPage {
 
   private user: UserModel;
+  private loading: Loading;
+  private validator: FormGroup;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserService,
-              private toastCtrl: ToastController) {
+              private toastCtrl: ToastController, public loadingCtrl: LoadingController) {
     this.user = new UserModel();
+
+    this.validator = new FormGroup({
+      name: new FormControl('', Validators.required),
+      email: new FormControl('', Validators.compose([
+        Validators.required,
+        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+      ])),
+      password: new FormControl('', Validators.compose([
+        Validators.required,
+        Validators.minLength(6)
+      ]))
+    });
+
   }
 
   public getUser(): UserModel{
@@ -30,7 +47,13 @@ export class RegisterAccountPage {
   }
 
   saveForm(user: UserModel) {
-    this.postForm(user);
+    if(this.validator.valid){
+      this.openLoading();
+      this.postForm(user);
+      this.closeLoading();
+    }
+    else
+      this.presentToast("Email ou Senha inválidos!");
   }
 
   private postForm(user: UserModel){
@@ -40,17 +63,21 @@ export class RegisterAccountPage {
           Service.setUser(user);
           this.navCtrl.setRoot(HomePage);
         },
-        (error:Error) => {
+        (error:HttpErrorResponse) => {
           console.log(error.message);
-          this.presentToast(error);
+          console.log(error.status);
+          if(error.status === 409)
+            this.presentToast("Email já está cadastrado!");
+          else
+            this.presentToast(error.message);
         }
       );
   }
 
-  presentToast(error:Error) {
+  presentToast(msg: string) {
     let toast = this.toastCtrl.create({
-      message: error.message,
-      duration: 3000,
+      message: msg,
+      duration: 5000,
       position: 'bottom'
     });
   
@@ -60,5 +87,15 @@ export class RegisterAccountPage {
   
     toast.present();
   }
+
+  openLoading(){
+    this.loading = this.loadingCtrl.create();
+    this.loading.present();
+  }
+
+  closeLoading() {
+    this.loading.dismiss();
+  }
+
 
 }

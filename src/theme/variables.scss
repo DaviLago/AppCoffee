@@ -37,7 +37,7 @@ $colors: (
   primary:    #488aff,
   secondary:  #32db64,
   danger:     #f53d3d,
-  light:      #f4f4f4,
+  light:      #808080,
   dark:       #222,
   energized:  #ffc527,
   royal:      #7e60ff,
@@ -73,6 +73,12 @@ $checkbox-md-icon-checkmark-color:        #fff;
 
 // Used to show the status bar for component demos
 $cordova-md-statusbar-padding:           29px;
+
+// Used to style ionic spinner
+$loading-ios-background: transparent;
+$loading-md-background: $loading-ios-background;
+$loading-wp-background: $loading-ios-background;
+$loading-md-box-shadow: none;
 
 
 // App Windows Variables

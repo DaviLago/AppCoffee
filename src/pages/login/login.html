@@ -5,17 +5,18 @@
 </ion-header>
 
 <ion-content class="outer-content">
-  <form (ngSubmit)="saveForm(user)">
+  <form (ngSubmit)="saveForm(user)" [formGroup] = "validator">
     <ion-list inset>
       <ion-item>
         <ion-label floating>Email</ion-label>
-        <ion-input type="email" name="email" [(ngModel)]="user.email" required></ion-input>
+        <ion-input type="email" name="email" [(ngModel)]="user.email" formControlName="email"></ion-input>
       </ion-item>
       
       <ion-item>
         <ion-label floating>Senha</ion-label>
-        <ion-input type="password" name="password" [(ngModel)]="user.password" required></ion-input>
+        <ion-input type="password" name="password" [(ngModel)]="user.password" formControlName="password"></ion-input>
       </ion-item>
+      <div ion-text color="light">no mínimo 6 caracteres</div>
     </ion-list>
     
     <ion-row padding-horizontal>
