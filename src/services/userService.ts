@@ -9,10 +9,12 @@ import { Service } from './service';
 
 //Model
 import { UserModel } from '../models/UserModel';
+import { HttpMethod } from './HttpMethod';
 
 @Injectable()
 export class UserService extends Service {
 
+  //Do not need authentication token
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json'
@@ -27,20 +29,12 @@ export class UserService extends Service {
     Service.setUser(user);
   }
 
-  public getUserByEmailAndPassword(user: UserModel): Observable<UserModel> {
-    return this.http.get<UserModel>(`${Service.getBaseUrl()}/user/auth/${user.email}/${user.password}`);
+  public getTokenByEmailAndPassword(user: UserModel): Observable<UserModel> {
+    return this.http.post<UserModel>(HttpMethod.POST_AUTH, user, this.httpOptions);
   }
 
   public postUser(user: UserModel):Observable<UserModel>{
-    return this.http.post<UserModel>(`${Service.getBaseUrl()}/user`, user,  this.httpOptions);
-  }
-
-  public putUser(user: UserModel):Observable<UserModel>{
-    return this.http.put<UserModel>(`${Service.getBaseUrl()}/user/${user.id}`, user, this.httpOptions);
-  }
-
-  public deleteUser(user: UserModel):Observable<UserModel>{
-    return this.http.delete<UserModel>(`${Service.getBaseUrl()}/annotation/${user.id}`, this.httpOptions);
+    return this.http.post<UserModel>(HttpMethod.POST_USER, user,  this.httpOptions);
   }
 
 }

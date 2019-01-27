@@ -4,9 +4,16 @@
     "cordova": {}
   },
   "type": "ionic-angular",
-  "pro_id": "61493156",
-  "proxies": [{
-    "path": "/v1",
-    "proxyUrl": "http://localhost:8080/v1"
-  }]
+  "id": "61493156",
+  "proxies": [
+    {
+      "path": "/auth",
+      "proxyUrl": "https://ws-coffee-app.herokuapp.com/auth"
+    },
+    {
+      "path": "/v1",
+      "proxyUrl": "https://ws-coffee-app.herokuapp.com/v1"
+    }
+  ]
 }
+

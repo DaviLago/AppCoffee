@@ -12,13 +12,15 @@ import { ArticleModel } from '../models/ArticleModel';
 
 //Enum
 import { Theme } from '../enums/TemaEnum';
+import { HttpMethod } from './HttpMethod';
 
 @Injectable()
 export class ArticleService extends Service {
 
   private httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type':  'application/json'
+      'Content-Type':  'application/json',
+      'Authorization': `Bearer ${Service.getUser().token}`
     })
   };
 
@@ -27,7 +29,7 @@ export class ArticleService extends Service {
   }
 
   public getAllArticlesByTheme(theme: Theme): Observable<Array<ArticleModel>> {
-    return this.http.get<Array<ArticleModel>>(`${Service.getBaseUrl()}/article/theme/${theme}`, this.httpOptions);
+    return this.http.get<Array<ArticleModel>>(`${HttpMethod.GET_ARTICLE_BY_THEME}/${theme}`, this.httpOptions);
   }
 
 }
