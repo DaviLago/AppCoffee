@@ -59,9 +59,7 @@ export class LoginPage {
     this.userService.getTokenByEmailAndPassword(user)
       .subscribe(
         (user:UserModel) => {
-          UserService.setUser(user);
           this.navCtrl.setRoot(HomePage);
-          console.log("User: ".concat(user.token));
         },
         (error:Error) => {
           console.log(error.message);

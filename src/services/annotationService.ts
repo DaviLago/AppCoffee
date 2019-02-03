@@ -39,7 +39,7 @@ export class AnnotationService extends Service {
   }
 
   public deleteAnnotation(annotation: AnnotationModel):Observable<AnnotationModel>{
-    return this.http.delete<AnnotationModel>(`${HttpMethod.DELETE_ANNOTATION}/annotation/${annotation.id}`, this.httpOptions);
+    return this.http.delete<AnnotationModel>(`${HttpMethod.DELETE_ANNOTATION}/${annotation.id}`, this.httpOptions);
   }
 
 }

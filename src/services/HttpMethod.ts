@@ -7,6 +7,7 @@ export abstract class HttpMethod {
 
     public static readonly POST_AUTH:string = HttpMethod.BASE + "/auth";
     public static readonly POST_USER:string = HttpMethod.POST_AUTH + "/user";
+    public static readonly GET_USER:string = HttpMethod.BASE_VERSION + "/user";
 
     public static readonly GET_ARTICLE:string = HttpMethod.BASE_VERSION + "/article";
     public static readonly GET_ARTICLE_BY_THEME:string = HttpMethod.GET_ARTICLE + "/theme";
