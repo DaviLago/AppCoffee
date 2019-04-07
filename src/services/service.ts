@@ -3,13 +3,23 @@ import { HttpClient } from '@angular/common/http';
 import { UserModel } from '../models/UserModel'
 import { Playload } from '../models/Playload';
 
+//Session
+import { Session } from '../session/session';
+
 @Injectable()
 export class Service {
 
     private static user: UserModel;
     private static playload: Playload;
+    private static userSession: Session;
 
-    constructor(public http: HttpClient) {}
+    constructor(public http: HttpClient, public session: Session) {
+        Service.userSession = session;
+    }
+
+    public static getSession(){
+        return this.userSession;
+    }
 
     public static getUser(): UserModel{
         return this.user;

@@ -25,6 +25,13 @@ export class LoginPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private userService: UserService, 
               private toastCtrl: ToastController, public loadingCtrl: LoadingController) {
+
+    // UserService.getSession().get()
+    //   .then(user => {
+    //     if(user != null)
+    //       this.navCtrl.setRoot(HomePage);
+    //   });
+    
     this.user = new UserModel();
     UserService.setUser(this.user);
 
@@ -49,7 +56,6 @@ export class LoginPage {
     if(this.validator.valid){
       this.openLoading();
       this.postForm(user);
-      this.closeLoading();
     }
     else
       this.presentToast("Email ou Senha inválidos!");
@@ -60,10 +66,12 @@ export class LoginPage {
       .subscribe(
         (user:UserModel) => {
           this.navCtrl.setRoot(HomePage);
+          this.closeLoading();
         },
         (error:Error) => {
           console.log(error.message);
           this.presentToast(error.message);
+          this.closeLoading();
         }
       );
   }
@@ -81,12 +89,7 @@ export class LoginPage {
       message: msg,
       duration: 7000,
       position: 'bottom'
-    });
-  
-    // toast.onDidDismiss(() => {
-    //   console.log('Dismissed toast');
-    // });
-  
+    });  
     toast.present();
   }
 

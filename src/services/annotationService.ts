@@ -4,6 +4,9 @@ import { Observable } from 'rxjs/Observable';
 import { HttpHeaders } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 
+//Session
+import { Session } from '../session/session';
+
 //Super service
 import { Service } from './service';
 
@@ -16,8 +19,8 @@ export class AnnotationService extends Service {
 
   private httpOptions = {};
 
-  constructor(public http: HttpClient) {
-    super(http);
+  constructor(public http: HttpClient, public session: Session) {
+    super(http, session);
     this.httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',

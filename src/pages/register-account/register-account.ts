@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController, LoadingController, Loading } from 'ionic-angular';
 
-
 //Service
 import { UserService } from '../../services/userService';
-import { Service } from '../../services/service';
 
 //Model
 import { UserModel } from '../../models/UserModel';
@@ -50,7 +48,6 @@ export class RegisterAccountPage {
     if(this.validator.valid){
       this.openLoading();
       this.postForm(user);
-      this.closeLoading();
     }
     else
       this.presentToast("Email ou Senha inválidos!");
@@ -60,7 +57,9 @@ export class RegisterAccountPage {
     this.userService.postUser(user)
       .subscribe(
         (user:UserModel) => {
-          Service.setUser(user);
+          UserService.getSession().create(user);
+          UserService.setUser(user);
+          this.closeLoading();
           this.navCtrl.setRoot(HomePage);
         },
         (error:HttpErrorResponse) => {
@@ -70,6 +69,7 @@ export class RegisterAccountPage {
             this.presentToast("Email já está cadastrado!");
           else
             this.presentToast(error.message);
+          this.closeLoading();
         }
       );
   }
@@ -79,12 +79,7 @@ export class RegisterAccountPage {
       message: msg,
       duration: 5000,
       position: 'bottom'
-    });
-  
-    // toast.onDidDismiss(() => {
-    //   console.log('Dismissed toast');
-    // });
-  
+    });  
     toast.present();
   }
 
@@ -96,6 +91,5 @@ export class RegisterAccountPage {
   closeLoading() {
     this.loading.dismiss();
   }
-
 
 }

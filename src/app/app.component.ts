@@ -9,6 +9,7 @@ import { PreparoListPage } from '../pages/preparo/preparo';
 import { GraoListPage } from '../pages/grao/grao';
 import { DiaryPage } from '../pages/diary/diary';
 import { LoginPage } from '../pages/login/login';
+import { LogoutPage } from '../pages/logout/logout';
 
 @Component({
   templateUrl: 'app.html'
@@ -29,7 +30,7 @@ export class MyApp {
       { title: 'Método de Preparo', component: PreparoListPage },
       { title: 'Grão', component: GraoListPage },
       { title: 'Diário', component: DiaryPage },
-      { title: 'Sair', component: LoginPage }
+      { title: 'Sair', component: LogoutPage }
     ];
 
   }

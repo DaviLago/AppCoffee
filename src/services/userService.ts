@@ -4,6 +4,9 @@ import { Observable } from 'rxjs/Observable';
 import { HttpHeaders } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 
+//Session
+import { Session } from '../session/session';
+
 //Super service
 import { Service } from './service';
 
@@ -15,8 +18,8 @@ import { Playload } from '../models/Playload';
 @Injectable()
 export class UserService extends Service {
 
-  constructor(public http: HttpClient) {
-    super(http);
+  constructor(public http: HttpClient, public session: Session) {
+    super(http, session);
   }
 
   public static setUser(user:UserModel){
@@ -35,6 +38,7 @@ export class UserService extends Service {
           Service.setPlayload(playload);
           userModel.id = playload.sub;
           Service.setUser(userModel);
+          Service.getSession().create(userModel);
           this.getUserInfo(Service.getUser());
           console.log(Service.getUser());
         }
