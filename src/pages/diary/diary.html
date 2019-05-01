@@ -13,7 +13,7 @@
 </ion-header>
 
 <ion-content class="outer-content">
-  <ion-list text-wrap>
+  <ion-list >
     
     <div *ngFor="let annotation of annotations">
     
@@ -22,8 +22,8 @@
       <ion-item-sliding>
         <ion-item (click)="itemTapped($event, annotation)">
           <ion-row><h2>{{annotation.title}}</h2></ion-row>
-          <!-- <ion-row>{{annotation.cafe}}</ion-row> -->
-          <!-- <ion-row>{{annotation.descricao}}</ion-row> -->
+          <ion-row>{{annotation.cafe}}</ion-row>
+          <ion-row>{{annotation.descricao}}</ion-row>
         </ion-item>
         <ion-item-options side="right">
           <button ion-button color="primary" icon-start (click)="annotationCreateClickEvent($event, annotation)">
