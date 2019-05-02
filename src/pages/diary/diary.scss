@@ -1,12 +1,8 @@
 page-diary{
 
-    // ion-content, ion-item-divider {
-    // ion-item {
-    //     @include linear-gradient(left, $midnight-city);
-    //     -webkit-background-size: cover;
-    //     -moz-background-size: cover;
-    //     background-size: cover;
-    // }
+    ion-item-sliding .item{
+        background-color: #e6d2c7;
+    }
 
     ion-item-divider {
         min-height: 10px;

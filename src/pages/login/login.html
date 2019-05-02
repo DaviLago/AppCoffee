@@ -1,30 +1,28 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>Login</ion-title>
-  </ion-navbar>
-</ion-header>
 
-<ion-content class="outer-content">
+<ion-content class="has-bg-img">
   <form (ngSubmit)="saveForm(user)" [formGroup] = "validator">
-    <ion-list inset>
-      <ion-item>
-        <ion-label floating>Email</ion-label>
-        <ion-input type="email" name="email" [(ngModel)]="user.email" formControlName="email"></ion-input>
-      </ion-item>
-      
-      <ion-item>
-        <ion-label floating>Senha</ion-label>
-        <ion-input type="password" name="password" [(ngModel)]="user.password" formControlName="password"></ion-input>
-      </ion-item>
-      <div ion-text color="light">no mínimo 6 caracteres</div>
-    </ion-list>
     
+    <img class="logo-login" src="assets/imgs/logo.png" alt="your image">
+    <h1 class="logo-title">APPCOFFEE</h1>
+    <ion-list inset>
+      <ion-label color="primary">Email</ion-label>
+      <ion-input type="email" name="email" [(ngModel)]="user.email" formControlName="email" class="input-coffee"></ion-input>
+            
+      <ion-label color="primary">Senha</ion-label>
+      <ion-input type="password" name="password" [(ngModel)]="user.password" formControlName="password" class="input-coffee"></ion-input>
+      <button ion-button clear marging-horizontal float-right (click)='forgotPassword($event)'>Esqueci a senha</button>
+    </ion-list>
+     
     <ion-row padding-horizontal>
-        <button ion-button round class="submit-btn" full type="submit" >Login</button>
-    </ion-row>
+      <ion-col col-6> 
+        <button full ion-button class="submit-btn"type="submit" >Login</button>
+      </ion-col>
+      
+      <ion-col col-6>
+          <button block ion-button outline marging-horizontal float-right (click)='createAccount($event)'>Criar nova conta</button>
+        </ion-col>
+      </ion-row>
   </form>
 
-  <button ion-button clear marging-horizontal float-right (click)='createAccount($event)'>Criar nova conta</button>
-  <!-- <button ion-button clear marging-horizontal float-right (click)='forgotPassword($event)'>Esqueci a senha</button> -->
 
 </ion-content>

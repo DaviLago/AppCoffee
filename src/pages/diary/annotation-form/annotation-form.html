@@ -9,40 +9,35 @@
     </ion-toolbar>
 </ion-header>
   
-  <ion-content>
-    <form (ngSubmit)="saveForm(annotation)">
-        <ion-item [formGroup] = "validator">
-            <ion-label floating>Título</ion-label>
-            <ion-input type="text" [(ngModel)]="annotation.title" name="title" formControlName="title"></ion-input>
-        </ion-item>  
-        <ion-item>
-            <ion-label floating>Cafeteria</ion-label>
-            <ion-input type="text" [(ngModel)]="annotation.cafeteria" name="cafeteria"></ion-input>
-        </ion-item>        
-        <ion-item>
-            <ion-label floating>Café</ion-label>
-            <ion-input type="text" [(ngModel)]="annotation.cafe" name="cafe"></ion-input>
-        </ion-item>        
-        <ion-item>
-            <ion-label floating>Barista</ion-label>
-            <ion-input type="text" [(ngModel)]="annotation.barista" name="barista"></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-label floating>Harmonização</ion-label>
-            <ion-input type="text" [(ngModel)]="annotation.harmonizacao" name="harmonizacao"></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-label floating>Complemento</ion-label>
-            <ion-input type="text" [(ngModel)]="annotation.complemento" name="complemento"></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-label floating>Método de Preparo</ion-label>
-            <ion-input type="text" [(ngModel)]="annotation.metodoPreparo" name="preparo"></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-label floating>Descrição</ion-label>
-            <ion-textarea type="text" [(ngModel)]="annotation.descricao" name="descricao"></ion-textarea>
-        </ion-item>
+  <ion-content >
+    <form (ngSubmit)="saveForm(annotation)" class="fit-content">
+        <div [formGroup] = "validator">
+            <ion-label >Título</ion-label>
+            <ion-input type="text" [(ngModel)]="annotation.title" name="title" formControlName="title" class="input-coffee"></ion-input>
+        </div>  
+
+        <ion-label >Cafeteria</ion-label>
+        <ion-input type="text" [(ngModel)]="annotation.cafeteria" name="cafeteria" class="input-coffee" ></ion-input>
+    
+        <ion-label >Café</ion-label>
+        <ion-input type="text" [(ngModel)]="annotation.cafe" name="cafe" class="input-coffee" ></ion-input>
+    
+        <ion-label >Barista</ion-label>
+        <ion-input type="text" [(ngModel)]="annotation.barista" name="barista" class="input-coffee"></ion-input>
+
+        <ion-label >Harmonização</ion-label>
+        <ion-input type="text" [(ngModel)]="annotation.harmonizacao" name="harmonizacao" class="input-coffee"></ion-input>
+
+        <ion-label >Complemento</ion-label>
+        <ion-input type="text" [(ngModel)]="annotation.complemento" name="complemento" class="input-coffee"></ion-input>
+
+        <ion-label >Método de Preparo</ion-label>
+        <ion-input type="text" [(ngModel)]="annotation.metodoPreparo" name="preparo" class="input-coffee"></ion-input>
+
+        <ion-label >Descrição</ion-label>
+        <ion-textarea type="text" [(ngModel)]="annotation.descricao" name="descricao" class="input-coffee"></ion-textarea>
+
         <button ion-button type="submit" block>Save</button>
     </form>
+    
   </ion-content>
