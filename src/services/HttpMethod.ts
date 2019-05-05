@@ -1,7 +1,7 @@
 export abstract class HttpMethod {
 
-    // public static readonly BASE:string = "https://ws-coffee-app.herokuapp.com";
-    public static readonly BASE:string = "http://localhost:8100";
+    public static readonly BASE:string = "https://ws-coffee-app.herokuapp.com";
+    // public static readonly BASE:string = "http://localhost:8100";
     public static readonly VERSION:string = "/v1";
     public static readonly BASE_VERSION:string = HttpMethod.BASE + HttpMethod.VERSION;
 
