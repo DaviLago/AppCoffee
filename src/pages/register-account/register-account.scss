@@ -1,3 +1,13 @@
 page-register-account{
-    
+    .submit-btn{
+        border-radius: 5px;
+    }
+    .rounded{
+        width: 50%;
+        height: 50px;
+        -moz-border-radius: 50px;
+        -webkit-border-radius: 50px;
+        border-radius: 10px;
+        margin-bottom: 10px; 
+    }
 }

@@ -10,25 +10,25 @@
 <ion-content class="outer-content">
   <form (ngSubmit)="saveForm(user)" [formGroup] = "validator">
     <ion-list inset>
-      <ion-item>
-        <ion-label floating>Nome</ion-label>
-        <ion-input type="text" name="name" [(ngModel)]="user.name" formControlName="name"></ion-input>
-      </ion-item>
+      <!--<ion-item>-->
+        <ion-label color="primary">Nome de Usuário</ion-label>
+        <ion-input type="text" class="input-coffee"name="name" [(ngModel)]="user.name" formControlName="name"></ion-input>
+      <!--</ion-item>-->
 
-      <ion-item>
-        <ion-label floating>Email</ion-label>
-        <ion-input type="email" name="email" [(ngModel)]="user.email" formControlName="email"></ion-input>
-      </ion-item>
+      <!--<ion-item>-->
+        <ion-label color="primary">Email</ion-label>
+        <ion-input type="email" class="input-coffee" name="email" [(ngModel)]="user.email" formControlName="email"></ion-input>
+      <!--</ion-item>-->
       
-      <ion-item>
-        <ion-label floating>Senha</ion-label>
-        <ion-input type="password" name="password" [(ngModel)]="user.password" formControlName="password"></ion-input>
-      </ion-item>
-      <div ion-text color="light">no mínimo 6 caracteres</div>
+      <!--<ion-item>-->
+        <ion-label color="primary">Senha</ion-label>
+        <ion-input type="password" class="input-coffee" name="password" [(ngModel)]="user.password" formControlName="password"></ion-input>
+      <!--</ion-item>-->
+      <div ion-text color="light">Digite uma senha com, no mínimo, 6 caracteres</div>
     </ion-list>
     
     <ion-row padding-horizontal>
-      <button ion-button round class="submit-btn" full type="submit" >Sign up</button>
+      <button ion-button round class="submit-btn" full type="submit" >Cadastrar</button>
     </ion-row>
 
   </form>
