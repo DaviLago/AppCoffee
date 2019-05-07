@@ -1,3 +1,9 @@
+@font-face {
+    font-family: 'century gothic';
+    src: url('../assets/fonts/Century Gothic.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
 page-diary{
 
     ion-item-sliding .item{
@@ -42,5 +48,26 @@ page-diary{
     
     .list-md ion-item-options{
         border-bottom: none;
+    }
+    .submit-btn{
+        font-family: "century gothic";
+        font-size: 20px;
+        border-radius: 5px;
+        background: color($colors, secondary);
+    }
+    h2{
+        font-family: "century gothic";
+        display: block;
+        width: fit-content;
+        font-size: 20px;
+        font-weight: bold;
+        color: color($colors, primary);
+    }
+    .escrita{
+        font-family: "century gothic";
+        display: block;
+        width: fit-content;
+        font-size: medium;
+        color: color($colors, primary);
     }
 }

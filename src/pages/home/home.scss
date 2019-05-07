@@ -1,3 +1,9 @@
+@font-face {
+    font-family: 'century gothic';
+    src: url('../assets/fonts/Century Gothic.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
 page-home {
     ion-content{
         background: rgba(158, 111, 11, 0.74)
@@ -12,7 +18,7 @@ page-home {
     }
     h3{
         padding-top: 10%;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-family: "century gothic";
         margin:0 auto;
         display: block;
         width: fit-content;
@@ -22,11 +28,17 @@ page-home {
     h4{
         padding-block-start: 15%;
         padding-block-end: 5%;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-family: "century gothic";
         margin:0 auto;
         display: block;
         width: fit-content;
         font-size: 20px;
         color: color($colors, primary);
+    }
+    .submit-btn{
+        font-family: "century gothic";
+        font-size: 20px;
+        border-radius: 5px;
+        background: color($colors, secondary);
     }
 }

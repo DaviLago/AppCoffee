@@ -12,7 +12,7 @@
   <h4 padding-horizontal>Por favor, selecione o item que deseja acessar:</h4>
 
   <ion-row padding-horizontal>
-      <button block ion-button *ngFor="let p of pages" (click)="openPage(p)">{{p.title}}</button>
+      <button block ion-button class="submit-btn" *ngFor="let p of pages" (click)="openPage(p)">{{p.title}}</button>
   </ion-row>
 
 </ion-content>
