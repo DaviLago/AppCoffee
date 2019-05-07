@@ -11,7 +11,6 @@ import { UserModel } from '../../models/UserModel';
 import { HomePage } from '../home/home';
 import { RegisterAccountPage } from '../register-account/register-account';
 import { ForgotPasswordPage } from '../forgot-password/forgot-password';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'page-login',
@@ -20,7 +19,6 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class LoginPage {
 
   private user: UserModel;
-  private validator: FormGroup;
   private loading: Loading;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private userService: UserService, 
@@ -34,17 +32,6 @@ export class LoginPage {
     
     this.user = new UserModel();
     UserService.setUser(this.user);
-
-    this.validator = new FormGroup({
-      email: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
-      ])),
-      password: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.minLength(6)
-      ]))
-    });
     
   }
 
@@ -53,24 +40,26 @@ export class LoginPage {
   }
 
   saveForm(user: UserModel) {
-    if(this.validator.valid){
       this.openLoading();
       this.postForm(user);
-    }
-    else
-      this.presentToast("Email ou Senha inválidos!");
   }
 
   private postForm(user: UserModel){
     this.userService.getTokenByEmailAndPassword(user)
       .subscribe(
         (user:UserModel) => {
-          this.navCtrl.setRoot(HomePage);
           this.closeLoading();
+          this.navCtrl.setRoot(HomePage, {
+            user: user
+          });
         },
-        (error:Error) => {
+        (error:any) => {
           console.log(error.message);
-          this.presentToast(error.message);
+          console.log(error.status);
+          if(error.status == 401)
+            this.presentToast("Email ou senha incorretos");
+          else
+            this.presentToast("Erro ao tentar logar. Verifique sua conexão com a internet");
           this.closeLoading();
         }
       );

@@ -7,14 +7,11 @@
 </ion-header>
 
 <ion-content padding >
-  <h3 text-center>Bem Vindo, [nome do user]</h3>
+  <h3 text-center>Bem Vindo, {{user.name}}</h3>
   <h4 padding-horizontal>Por favor, selecione o item que deseja acessar</h4>
 
   <ion-row padding-horizontal>
-      <button block ion-button (click)='createAccount($event)'>Torras</button>
-      <button block ion-button (click)='createAccount($event)'>Methodos de preparo</button>      
-      <button block ion-button (click)='createAccount($event)'>Tpos de Grãos</button>
-      <button block ion-button (click)='createAccount($event)'>Diario</button>
-
+      <button block ion-button *ngFor="let p of pages" (click)="openPage(p)">{{p.title}}</button>
   </ion-row>
+
 </ion-content>

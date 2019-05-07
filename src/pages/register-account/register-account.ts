@@ -66,7 +66,7 @@ export class RegisterAccountPage {
           console.log(error.message);
           console.log(error.status);
           if(error.status === 409)
-            this.presentToast("Email já está cadastrado!");
+            this.presentToast("Esse email já está cadastrado");
           else
             this.presentToast(error.message);
           this.closeLoading();

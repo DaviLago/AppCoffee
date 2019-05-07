@@ -4,12 +4,11 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { TorraListPage } from '../pages/torra/torra';
-import { PreparoListPage } from '../pages/preparo/preparo';
-import { GraoListPage } from '../pages/grao/grao';
+import { ArticlesPage } from '../pages/articles/articles';
 import { DiaryPage } from '../pages/diary/diary';
 import { LoginPage } from '../pages/login/login';
 import { LogoutPage } from '../pages/logout/logout';
+import { Theme } from '../enums/TemaEnum';
 
 @Component({
   templateUrl: 'app.html'
@@ -19,16 +18,16 @@ export class MyApp {
 
   rootPage: any = LoginPage;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any, params?:any}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'Torra', component: TorraListPage },
-      { title: 'Método de Preparo', component: PreparoListPage },
-      { title: 'Grão', component: GraoListPage },
+      { title: 'Tipos de Torra', component: ArticlesPage, params: {theme:Theme.TIPOS_TORRA} },
+      { title: 'Métodos de Preparo', component: ArticlesPage, params: {theme:Theme.METODO_PREPARO} },
+      { title: 'Tipos de Grãos', component: ArticlesPage, params: {theme:Theme.TIPOS_GRAOS} },
       { title: 'Diário', component: DiaryPage },
       { title: 'Sair', component: LogoutPage }
     ];
@@ -43,6 +42,9 @@ export class MyApp {
   }
 
   openPage(page) {
-    this.nav.setRoot(page.component);
+    this.nav.setRoot(page.component, {
+        params: page.params,
+        title: page.title
+    });
   }
 }

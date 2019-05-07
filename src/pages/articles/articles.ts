@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavParams, NavController } from 'ionic-angular';
+import { NavParams, NavController, LoadingController, Loading } from 'ionic-angular';
 
 //Service
 import  { ArticleService } from '../../services/articleService';
@@ -15,13 +15,16 @@ import { ArticleDetailPage } from './article-detail/article-detail';
 })
 export class ArticlesPage {
 
-    private item: any;
+    private params: any;
+    private title: any;
     private articles: Array<ArticleModel>;
     private EmptyListMessage: String;
+    private loading: Loading;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, public articleService: ArticleService) {
-        this.item = navParams.get('item');
-        this.getAllArticlesByTheme(this.item.theme);
+    constructor(public navCtrl: NavController, public navParams: NavParams, public articleService: ArticleService, public loadingCtrl: LoadingController) {
+        this.params = navParams.get('params');
+        this.title = navParams.get('title');
+        this.getAllArticlesByTheme(this.params.theme);
     }
 
     public getArticles(): Array<ArticleModel>{
@@ -33,6 +36,7 @@ export class ArticlesPage {
     }
 
     public getAllArticlesByTheme(theme: Theme){
+        this.openLoading();
         this.articleService.getAllArticlesByTheme(theme)
           .subscribe(
             (data) => {
@@ -41,9 +45,11 @@ export class ArticlesPage {
                     this.EmptyListMessage = "Não há artigos com esse tema no momento...";
                 else
                     this.EmptyListMessage = null;
+                this.closeLoading();
             },
             (error:Error) => {
-              console.log(error.message);
+                this.EmptyListMessage = "Erro ao carregar...";
+                this.closeLoading();
             }
         );
     }
@@ -51,8 +57,17 @@ export class ArticlesPage {
     itemTapped(event, article) {
         this.navCtrl.push(ArticleDetailPage, {
             article: article,
-            title: this.item.title
+            title: this.title
         });
     }
+
+    openLoading(){
+        this.loading = this.loadingCtrl.create();
+        this.loading.present();
+      }
+    
+      closeLoading() {
+        this.loading.dismiss();
+      }
 
 }

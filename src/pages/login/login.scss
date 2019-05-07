@@ -1,3 +1,9 @@
+    @font-face {
+        font-family: 'gunplay rg';
+        src: url('../assets/fonts/gunplay rg.ttf');
+        font-weight: normal;
+        font-style: normal;
+      }
 page-login{
     ion-content.has-bg-img.content.content-md{
         // position: relative !important;
@@ -15,15 +21,20 @@ page-login{
         opacity: 0.1 !important; /* Here is your opacity */
     }
     .logo-login{
-        margin:50px auto;
-        width: 60%;
+        padding-top: 20%;
+        margin:20px auto;
+        width: 40%;
         display: block;
     } 
     .logo-title{
+        font-family: "gunplay rg";
         margin:0 auto;
         display: block;
         width: fit-content;
+        font-size: 50px;
         color: color($colors, primary);
     } 
-    
+    .submit-btn{
+        border-radius: 5px;
+    }
 }

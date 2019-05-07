@@ -3,7 +3,7 @@
             <button ion-button menuToggle>
                 <ion-icon name="menu"></ion-icon>
             </button>
-            <ion-title>Artigos sobre {{item.title}}</ion-title>
+            <ion-title>Artigos sobre {{title}}</ion-title>
         </ion-navbar>
     </ion-header>
           
@@ -15,7 +15,6 @@
                     <ion-item-divider></ion-item-divider>
                     <ion-item (click)="itemTapped($event, article)">
                         <ion-row>{{article.title}}</ion-row>
-                        <ion-row>{{article.theme}}</ion-row>
                     </ion-item>
                 </ion-item-sliding>
             </div>

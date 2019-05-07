@@ -10,19 +10,11 @@ import { ArticleModel } from '../../../models/ArticleModel';
 export class ArticleDetailPage {
 
     private article: ArticleModel;
-    private title: String;
+    private title: any;
 
     constructor(public navParams: NavParams) {
-        this.article = navParams.get('article');
-        this.title = navParams.get("title");
-    }
-
-    public getArticle(): ArticleModel{
-        return this.article;
-    }
-
-    public getTitle(): String{
-        return this.title;
+        this.article  = navParams.get('article');
+        this.title  = navParams.get('title');
     }
 
 }
