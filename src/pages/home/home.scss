@@ -2,4 +2,31 @@ page-home {
     ion-content{
         background: rgba(158, 111, 11, 0.74)
     }
+    .logo-home{
+        position: absolute;
+        width: 75px;
+        top: 10px;  
+        bottom: 0px;
+        left: 280px;
+        display: block;
+    }
+    h3{
+        padding-top: 10%;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        margin:0 auto;
+        display: block;
+        width: fit-content;
+        font-size: 35px;
+        color: color($colors, primary);
+    }
+    h4{
+        padding-block-start: 15%;
+        padding-block-end: 5%;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        margin:0 auto;
+        display: block;
+        width: fit-content;
+        font-size: 20px;
+        color: color($colors, primary);
+    }
 }
