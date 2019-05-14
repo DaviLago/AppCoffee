@@ -37,12 +37,28 @@ page-home {
     }
     .submit-btn{
         font-family: "century gothic";
-        font-size: 20px;
+        font-size: 13px;
         border-radius: 5px;
         background: color($colors, secondary);
         display: inline-block;
+        width: 45%;
+        margin: 5px;
+        height: 120px;
+        div{
+            display: block;
         }
-    .img{
-        
+        }
+    .button-img{
+        max-width: 100%;
+        border: 0;
+        display: block;
+        margin: 0 auto;
+        width: 64px;
+    }
+    .button-home{
+        max-width: 100%;
+        border: 0;
+        display: block;
+        margin: 0 auto;
     }
 }
