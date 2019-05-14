@@ -25,8 +25,8 @@ export class HomePage {
 
     this.pages = [
       { title: 'Torras', component: ArticlesPage, params: {theme:Theme.TIPOS_TORRA}, image: '../assets/imgs/grao.png' },
-      { title: 'Métodos de Preparo', component: ArticlesPage, params: {theme:Theme.METODO_PREPARO}, image: '../assets/imgs/prensa.png' },
-      { title: 'Tipos de Grãos', component: ArticlesPage, params: {theme:Theme.TIPOS_GRAOS}, image: '../assets/imgs/flor.png' },
+      { title: 'Preparos', component: ArticlesPage, params: {theme:Theme.METODO_PREPARO}, image: '../assets/imgs/prensa.png' },
+      { title: 'Grãos', component: ArticlesPage, params: {theme:Theme.TIPOS_GRAOS}, image: '../assets/imgs/flor.png' },
       { title: 'Diário', component: DiaryPage, image: '../assets/imgs/filtro.png' }
     ];
 

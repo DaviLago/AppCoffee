@@ -4,6 +4,12 @@
     font-weight: normal;
     font-style: normal;
   }
+@font-face {
+    font-family: 'gunplay rg';
+    src: url('../assets/fonts/gunplay rg.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
 page-home {
     ion-content{
         background: rgba(158, 111, 11, 0.74)
@@ -11,14 +17,14 @@ page-home {
     .logo-home{
         position: absolute;
         width: 75px;
-        top: 10px;  
+        top: 35px;  
         bottom: 0px;
         left: 280px;
         display: block;
     }
     h3{
         padding-top: 10%;
-        font-family: "century gothic";
+        font-family: "gunplay rg";
         margin:0 auto;
         display: block;
         width: fit-content;
@@ -37,7 +43,7 @@ page-home {
     }
     .submit-btn{
         font-family: "century gothic";
-        font-size: 13px;
+        font-size: 20px;
         border-radius: 5px;
         background: color($colors, secondary);
         display: inline-block;
