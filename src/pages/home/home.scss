@@ -1,5 +1,70 @@
+@font-face {
+    font-family: 'century gothic';
+    src: url('../assets/fonts/Century Gothic.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+@font-face {
+    font-family: 'gunplay rg';
+    src: url('../assets/fonts/gunplay rg.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
 page-home {
     ion-content{
         background: rgba(158, 111, 11, 0.74)
+    }
+    .logo-home{
+        position: absolute;
+        width: 75px;
+        top: 35px;  
+        bottom: 0px;
+        left: 280px;
+        display: block;
+    }
+    h3{
+        padding-top: 10%;
+        font-family: "gunplay rg";
+        margin:0 auto;
+        display: block;
+        width: fit-content;
+        font-size: 35px;
+        color: color($colors, primary);
+    }
+    h4{
+        padding-block-start: 15%;
+        padding-block-end: 5%;
+        font-family: "century gothic";
+        margin:0 auto;
+        display: block;
+        width: fit-content;
+        font-size: 20px;
+        color: color($colors, primary);
+    }
+    .submit-btn{
+        font-family: "century gothic";
+        font-size: 20px;
+        border-radius: 5px;
+        background: color($colors, secondary);
+        display: inline-block;
+        width: 45%;
+        margin: 5px;
+        height: 120px;
+        div{
+            display: block;
+        }
+        }
+    .button-img{
+        max-width: 100%;
+        border: 0;
+        display: block;
+        margin: 0 auto;
+        width: 64px;
+    }
+    .button-home{
+        max-width: 100%;
+        border: 0;
+        display: block;
+        margin: 0 auto;
     }
 }

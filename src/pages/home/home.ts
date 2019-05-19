@@ -24,10 +24,10 @@ export class HomePage {
     // this.user  = navParams.get('user');
 
     this.pages = [
-      { title: 'Torras', component: ArticlesPage, params: {theme:Theme.TIPOS_TORRA} },
-      { title: 'Métodos de Preparo', component: ArticlesPage, params: {theme:Theme.METODO_PREPARO} },
-      { title: 'Tipos de Grãos', component: ArticlesPage, params: {theme:Theme.TIPOS_GRAOS} },
-      { title: 'Diário', component: DiaryPage }
+      { title: 'Torras', component: ArticlesPage, params: {theme:Theme.TIPOS_TORRA}, image: '../assets/imgs/grao.png' },
+      { title: 'Preparos', component: ArticlesPage, params: {theme:Theme.METODO_PREPARO}, image: '../assets/imgs/prensa.png' },
+      { title: 'Grãos', component: ArticlesPage, params: {theme:Theme.TIPOS_GRAOS}, image: '../assets/imgs/flor.png' },
+      { title: 'Diário', component: DiaryPage, image: '../assets/imgs/filtro.png' }
     ];
 
     // this.presentToast("User token: " + UserService.getUser().token);

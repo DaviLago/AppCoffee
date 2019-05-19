@@ -1,3 +1,43 @@
+@font-face {
+    font-family: 'century gothic';
+    src: url('../assets/fonts/Century Gothic.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
 page-annotation-detail{
-    
+        h3{
+            font-family: "century gothic";
+            display: block;
+            width: fit-content;
+            font-size: 20px;
+            font-weight: bold;
+            color: color($colors, primary);
+    }
+    .escrita{
+        font-family: "century gothic";
+        display: block;
+        width: fit-content;
+        font-size: medium;
+        color: color($colors, primary);
+    }
+    .editar{
+        font-family: "century gothic";
+        font-size: 15px;
+        border-radius: 5px;
+        background: color($colors, subtle);
+    }
+    .excluir{
+        font-family: "century gothic";
+        font-size: 15px;
+        border-radius: 5px;
+        background: color($colors, danger);
+    }
+    .logo-artigo{
+        position: absolute;
+        width: 75px;
+        top: 6px;  
+        bottom: 0px;
+        left: 280px;
+        display: block;
+}
 }

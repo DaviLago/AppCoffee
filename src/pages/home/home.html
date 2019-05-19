@@ -1,17 +1,20 @@
 <ion-header>
-  <ion-navbar>
+  <!--<ion-navbar>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-  </ion-navbar>
+  </ion-navbar>-->
 </ion-header>
 
 <ion-content padding >
-  <h3 text-center>Bem Vindo, {{user.name}}</h3>
-  <h4 padding-horizontal>Por favor, selecione o item que deseja acessar</h4>
+  <h3 text-center>App Coffee</h3>
+  <img class="logo-home" src="assets/imgs/logo.png" alt="your image">
+  <h4 padding-horizontal>Bem vindo, {{user.name}}</h4>
 
-  <ion-row padding-horizontal>
-      <button block ion-button *ngFor="let p of pages" (click)="openPage(p)">{{p.title}}</button>
-  </ion-row>
-
+  <button block ion-button class="submit-btn" *ngFor="let p of pages" (click)="openPage(p)" >
+    <div>
+      <img class="button-img" src="{{p.image}}" alt="your image">
+      <span class="button-home">{{p.title}}</span>
+    </div>
+  </button>
 </ion-content>

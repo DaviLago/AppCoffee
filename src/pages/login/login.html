@@ -5,7 +5,7 @@
     <img class="logo-login" src="assets/imgs/logo.png" alt="your image">
     <h1 class="logo-title">APPCOFFEE</h1>
     <ion-list inset>
-      <ion-label color="primary">Email</ion-label>
+      <ion-label color="primary">E-mail</ion-label>
       <ion-input type="email" name="email" [(ngModel)]="user.email" class="input-coffee"></ion-input>
             
       <ion-label color="primary">Senha</ion-label>
@@ -19,7 +19,7 @@
       </ion-col>
       
       <ion-col col-6>
-          <button block ion-button outline marging-horizontal float-right (click)='createAccount($event)'>Criar nova conta</button>
+          <button block ion-button class ="submit-btn" outline marging-horizontal float-right (click)='createAccount($event)'>Criar nova conta</button>
         </ion-col>
       </ion-row>
   </form>
