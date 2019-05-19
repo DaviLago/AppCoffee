@@ -17,7 +17,7 @@ import { UserModel } from '../../models/UserModel';
 export class HomePage {
 
   private user: UserModel;
-  pages: Array<{title: string, component: any, params?:any}>;
+  pages: Array<{title: string, component: any, params?:any, image: string}>;
 
   constructor(public navCtrl: NavController, public userService: UserService, private toastCtrl: ToastController, public navParams: NavParams) {
     this.user = UserService.getUser();

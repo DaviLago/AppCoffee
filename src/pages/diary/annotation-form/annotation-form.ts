@@ -32,39 +32,47 @@ export class AnnotationFormModalPage {
     this.openLoading();
     this.annotationService.putAnnotation(annotation)
       .subscribe(
-        (data:AnnotationModel) => this.viewCtrl.dismiss(data, "put"),
+        (data:AnnotationModel) => {
+          this.viewCtrl.dismiss(data, "put");
+          this.closeLoading();
+        },
         (error:Error) => {
+          this.closeLoading();
           console.log(error.message);
           this.presentToast(error.message);
         }
       );
-      this.closeLoading();
   }
 
   private postForm(annotation:AnnotationModel){
     this.openLoading();
     this.annotationService.postAnnotation(annotation)
       .subscribe(
-        (data:AnnotationModel) => this.viewCtrl.dismiss(data, "post"),
+        (data:AnnotationModel) => {
+          this.viewCtrl.dismiss(data, "post");
+          this.closeLoading();
+        },
         (error:Error) => {
+          this.closeLoading();
           console.log(error.message);
           this.presentToast(error.message);
         }
       );
-      this.closeLoading();
   }
 
   public deleteAnnotation(annotation:AnnotationModel){
     this.openLoading();
     this.annotationService.deleteAnnotation(annotation)
       .subscribe(
-        (data:AnnotationModel) => this.viewCtrl.dismiss(data, "delete"),
+        (data:AnnotationModel) => {
+          this.closeLoading();
+        },
         (error:Error) => {
+          this.closeLoading();
           console.log(error.message);
           this.presentToast(error.message);
         }
       );
-      this.closeLoading();
   }
   
   saveForm(annotation:AnnotationModel) {

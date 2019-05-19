@@ -16,27 +16,23 @@
   <ion-list >
     
     <div *ngFor="let annotation of annotations">
-    
-      <!-- <ion-item-divider></ion-item-divider> -->
-
-      <ion-item-sliding>
+      <ion-item-sliding #slidingItem>
         <ion-item (click)="itemTapped($event, annotation)">
           <ion-row><h2>{{annotation.title}}</h2></ion-row>
           <ion-row class="escrita">{{annotation.cafe}}</ion-row>
           <ion-row class="escrita">{{annotation.descricao}}</ion-row>
         </ion-item>
         <ion-item-options side="right">
-          <button ion-button color="primary" icon-start (click)="annotationCreateClickEvent($event, annotation)">
+          <button ion-button color="primary" icon-start (click)="annotationEditClickEvent($event, slidingItem, annotation)">
             <ion-icon name="md-create"></ion-icon>
             Editar
           </button>
-          <button ion-button color="danger" icon-start (click)="annotationDeleteClickEvent($event, annotation)">
+          <button ion-button color="danger" icon-start (click)="annotationDeleteClickEvent($event, slidingItem, annotation)">
             <ion-icon name="md-trash"></ion-icon>
             Apagar
           </button>
         </ion-item-options>
       </ion-item-sliding>
-
     </div>
   </ion-list>
 

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ActionSheetController, ModalController, AlertController, Loading, LoadingController  } from 'ionic-angular';
+import { NavController, NavParams, ActionSheetController, ModalController, AlertController, Loading, LoadingController, ItemSliding  } from 'ionic-angular';
 
 import { AnnotationFormModalPage } from './annotation-form/annotation-form';
 import { AnnotationDetailPage } from './annotation-detail/annotation-detail';
@@ -46,7 +46,12 @@ export class DiaryPage {
     this.closeLoading();
   }
 
-  annotationCreateClickEvent(e, annotation) {
+  annotationCreateClickEvent(e, annotaion) {
+    this.presentModal(annotaion);
+  }
+
+  annotationEditClickEvent(e, item: ItemSliding, annotation) {
+    item.close();
     this.presentModal(annotation);
   }
 
@@ -56,12 +61,13 @@ export class DiaryPage {
     modal.onDidDismiss((annotation, action) => {
       if(action === "post")
         this.annotations.push(annotation);
-      else
-        this.getAllAnnotations();
+      // else
+        // this.getAllAnnotations();
     });
   }
 
-  annotationDeleteClickEvent(e, annotation){
+  annotationDeleteClickEvent(e, item: ItemSliding, annotation){
+    item.close();
     this.showConfirm(annotation);
   }
 

@@ -49,8 +49,12 @@ export class RegisterAccountPage {
       this.openLoading();
       this.postForm(user);
     }
-    else
-      this.presentToast("Email ou Senha inválidos!");
+    else if(!this.validator.get('name').valid)
+      this.presentToast("O campo nome é obrigatório");
+    else if(!this.validator.get('email').valid)
+      this.presentToast("O e-mail digitado é inválido");
+    else if(!this.validator.get('password').valid)
+      this.presentToast("Senha com pelo menos 6 caracteres");
   }
 
   private postForm(user: UserModel){
@@ -65,7 +69,7 @@ export class RegisterAccountPage {
         (error:HttpErrorResponse) => {
           console.log(error.message);
           console.log(error.status);
-          if(error.status === 409)
+          if(error.status === 400 || error.status === 409)
             this.presentToast("Esse email já está cadastrado");
           else
             this.presentToast(error.message);
