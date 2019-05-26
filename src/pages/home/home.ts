@@ -9,6 +9,7 @@ import { UserService } from '../../services/userService';
 
 //Model
 import { UserModel } from '../../models/UserModel';
+import { LogoutPage } from '../logout/logout';
 
 @Component({
   selector: 'page-home',
@@ -45,10 +46,14 @@ export class HomePage {
   }
 
   openPage(page) {
-    this.navCtrl.setRoot(page.component, {
+    this.navCtrl.push(page.component, {
         params: page.params,
         title: page.title
     });
+  }
+
+  logout(){
+    this.navCtrl.setRoot(LogoutPage);
   }
 
 }
