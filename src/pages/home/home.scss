@@ -15,12 +15,12 @@ page-home {
         background: rgba(158, 111, 11, 0.74)
     }
     .logo-home{
-        position: absolute;
+        // position: absolute;
         width: 75px;
-        top: 35px;  
-        bottom: 0px;
-        left: 280px;
-        display: block;
+        // top: 35px;  
+        // bottom: 0px;
+        // left: 280px;
+        // display: block;
     }
     h3{
         padding-top: 10%;
@@ -47,13 +47,13 @@ page-home {
         border-radius: 5px;
         background: color($colors, secondary);
         display: inline-block;
-        width: 45%;
+        // width: 45%;
         margin: 5px;
         height: 120px;
         div{
             display: block;
         }
-        }
+    }
     .button-img{
         max-width: 100%;
         border: 0;

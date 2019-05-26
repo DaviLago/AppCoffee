@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, ToastController, Nav, NavParams } from 'ionic-angular';
+import { NavController, ToastController, NavParams } from 'ionic-angular';
 import { ArticlesPage } from '../articles/articles';
 import { DiaryPage } from '../diary/diary';
 import { Theme } from '../../enums/TemaEnum';
@@ -16,21 +16,23 @@ import { UserModel } from '../../models/UserModel';
 })
 export class HomePage {
 
-  private user: UserModel;
+  private user: UserModel = UserService.getUser();
   pages: Array<{title: string, component: any, params?:any, image: string}>;
 
   constructor(public navCtrl: NavController, public userService: UserService, private toastCtrl: ToastController, public navParams: NavParams) {
-    this.user = UserService.getUser();
-    // this.user  = navParams.get('user');
-
     this.pages = [
-      { title: 'Torras', component: ArticlesPage, params: {theme:Theme.TIPOS_TORRA}, image: '../assets/imgs/grao.png' },
-      { title: 'Preparos', component: ArticlesPage, params: {theme:Theme.METODO_PREPARO}, image: '../assets/imgs/prensa.png' },
-      { title: 'Grãos', component: ArticlesPage, params: {theme:Theme.TIPOS_GRAOS}, image: '../assets/imgs/flor.png' },
-      { title: 'Diário', component: DiaryPage, image: '../assets/imgs/filtro.png' }
+      { title: 'Torras', component: ArticlesPage, params: {theme:Theme.TIPOS_TORRA}, image: 'assets/imgs/grao.png' },
+      { title: 'Preparos', component: ArticlesPage, params: {theme:Theme.METODO_PREPARO}, image: 'assets/imgs/prensa.png' },
+      { title: 'Grãos', component: ArticlesPage, params: {theme:Theme.TIPOS_GRAOS}, image: 'assets/imgs/flor.png' },
+      { title: 'Diário', component: DiaryPage, image: 'assets/imgs/filtro.png' }
     ];
+  }
 
-    // this.presentToast("User token: " + UserService.getUser().token);
+  setUser(user:UserModel){
+    this.user = user;
+  }
+  getUser(){
+    return this.user;
   }
 
   presentToast(msg: string) {

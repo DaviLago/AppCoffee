@@ -46,7 +46,7 @@ export class LoginPage {
 
   private postForm(user: UserModel){
     this.userService.getTokenByEmailAndPassword(user)
-      .subscribe(
+      .then(
         (user:UserModel) => {
           this.closeLoading();
           this.navCtrl.setRoot(HomePage, {

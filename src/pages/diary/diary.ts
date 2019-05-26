@@ -61,8 +61,6 @@ export class DiaryPage {
     modal.onDidDismiss((annotation, action) => {
       if(action === "post")
         this.annotations.push(annotation);
-      // else
-        // this.getAllAnnotations();
     });
   }
 

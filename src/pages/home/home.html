@@ -6,15 +6,20 @@
   </ion-navbar>-->
 </ion-header>
 
-<ion-content padding >
-  <h3 text-center>App Coffee</h3>
-  <img class="logo-home" src="assets/imgs/logo.png" alt="your image">
+<ion-content padding>
+  <h3 text-center>App Coffee
+    <img class="logo-home" src="assets/imgs/logo.png" alt="logo">
+  </h3>
   <h4 padding-horizontal>Bem vindo, {{user.name}}</h4>
-
-  <button block ion-button class="submit-btn" *ngFor="let p of pages" (click)="openPage(p)" >
-    <div>
-      <img class="button-img" src="{{p.image}}" alt="your image">
-      <span class="button-home">{{p.title}}</span>
-    </div>
-  </button>
+  <ion-row>
+    <ion-col col-6 *ngFor="let p of pages" (click)="openPage(p)">
+        <button block ion-button class="submit-btn">
+          <div>
+            <img class="button-img" src="{{p.image}}" alt="coffee theme">
+            <span class="button-home">{{p.title}}</span>
+          </div>
+        </button>
+    </ion-col>
+  </ion-row>
+  
 </ion-content>

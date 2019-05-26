@@ -59,12 +59,12 @@ export class RegisterAccountPage {
 
   private postForm(user: UserModel){
     this.userService.postUser(user)
-      .subscribe(
+      .then(
         (user:UserModel) => {
-          UserService.getSession().create(user);
-          UserService.setUser(user);
           this.closeLoading();
-          this.navCtrl.setRoot(HomePage);
+          this.navCtrl.setRoot(HomePage, {
+              user: user
+          });
         },
         (error:HttpErrorResponse) => {
           console.log(error.message);

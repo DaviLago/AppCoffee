@@ -30,9 +30,10 @@ export class UserService extends Service {
     Service.setPlayload(playload);
   }
 
-  public getTokenByEmailAndPassword(user: UserModel): Observable<UserModel> {
-    let response = this.http.post<UserModel>(HttpMethod.POST_AUTH, user);
-    response.subscribe(
+  public getTokenByEmailAndPassword(user: UserModel): Promise<UserModel> {
+    return new Promise((resolve, reject) => {
+      let response = this.http.post<UserModel>(HttpMethod.POST_AUTH, user);
+      response.subscribe(
         (userModel:UserModel) => {
           let playload: Playload = JSON.parse(window.atob(userModel.token.split('.')[1]));
           Service.setPlayload(playload);
@@ -41,9 +42,13 @@ export class UserService extends Service {
           Service.getSession().create(userModel);
           this.getUserInfo(Service.getUser());
           console.log(Service.getUser());
+          resolve(userModel);
+        },
+        (error:any) => {
+          reject(error);
         }
       );
-    return response;
+    });
   }
 
   public getUserInfo(user: UserModel): Observable<UserModel> {
@@ -63,8 +68,24 @@ export class UserService extends Service {
     return response;
   }
 
-  public postUser(user: UserModel):Observable<UserModel>{
-    return this.http.post<UserModel>(HttpMethod.POST_USER, user);
+  public postUser(user: UserModel): Promise<UserModel>{
+    return new Promise((resolve, reject) => {
+      this.http.post<UserModel>(HttpMethod.POST_USER, user).subscribe(
+        (userModel:UserModel) => {
+          let playload: Playload = JSON.parse(window.atob(userModel.token.split('.')[1]));
+          Service.setPlayload(playload);
+          userModel.id = playload.sub;
+          Service.setUser(userModel);
+          Service.getSession().create(userModel);
+          this.getUserInfo(Service.getUser());
+          console.log(Service.getUser());
+          resolve(userModel);
+        },
+        (error:any) => {
+          reject(error);
+        }
+      );
+    });
   }
 
 }

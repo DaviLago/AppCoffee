@@ -33,7 +33,6 @@ export class GraoListPage {
   }
 
   itemTapped(event, item) {
-    // That's right, we're pushing to ourselves!
     this.navCtrl.setRoot(ArticlesPage, {
       item: item
     });

@@ -105,11 +105,6 @@ export class AnnotationFormModalPage {
       duration: 7000,
       position: 'bottom'
     });
-  
-    // toast.onDidDismiss(() => {
-    //   console.log('Dismissed toast');
-    // });
-  
     toast.present();
   }
 
